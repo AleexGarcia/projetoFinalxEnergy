@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <locale.h>
 
-typedef struct
+
+struct Produto
 {
     int id;
     char nome[25];
@@ -11,22 +13,21 @@ typedef struct
     float precoDeCompra;
     float precoDeVenda;
     int quantidadeEmEstoque;
-} Produto;
+};
 
-typedef struct
+struct Usuario
 {
     char nome[25];
     char sobrenome[25];
     char endereco[100];
     char dataDeNascimento[10];
     char telefone[11];
-    float renda;
     float salario;
     char login[20];
     char senha[20];
     int acesso;
-} Usuario;
-typedef struct
+};
+struct Cliente
 {
     char nome[25];
     char sobrenome[25];
@@ -34,21 +35,27 @@ typedef struct
     char dataDeNascimento[10];
     char telefone[11];
     float renda;
-} Cliente;
+};
 
 int main()
 {
     setlocale(LC_ALL, "Portuguese");
     int quantidadeUser = 1;
-    int quantidadeProdutos = 10;
+    int quantidadeProdutos = 0;
     int quantidadeClientes = 0;
     int autenticado = 0;
     char login[25], senha[25];
+    char nomeClienteRecebido[25];
     int id;
-    Usuario usuarios[quantidadeUser];
-    Produto produtos[quantidadeProdutos];
-    Cliente clientes[quantidadeProdutos];
+    struct Usuario usuarios[quantidadeUser];
+    struct Produto produtos[quantidadeProdutos];
+    struct Cliente clientes[quantidadeClientes];
     int menuInicial, menuPrincipal, menuUser, menuProduto, menuVendas;
+    for(int i = 0; i < quantidadeUser; i++){
+        printf("Entre informe o login e senha, respectivamente.\n Para realizar o 1° cadastro adminitrativo\n");
+        scanf("%s %s", usuarios[i].login, usuarios[i].senha);
+        usuarios[i].acesso = 3;
+    }
 
     do
     {
@@ -58,15 +65,16 @@ int main()
         {
         case 1:
             printf("Login:\n ");
-            scanf("%s", login);
+            scanf("%s",login);
             printf("Senha:\n ");
-            scanf("%s", senha);
+            scanf("%s",senha);
+
             for (int i = 0; i < quantidadeUser; i++)
             {
-                if (login == usuarios[i].login && senha == usuarios[i].senha)
+
+                if (!strcmp(login ,usuarios[i].login) && !strcmp(senha,usuarios[i].senha))
                 {
                     autenticado = 1;
-                    id = i;
                 }
             }
 
@@ -87,7 +95,7 @@ int main()
                         {
                             printf("MENU USUÁRIO\n");
                             printf("Digite 1 para Cadastrar novo cliente\n");
-                            printf("Digite 2 para Cadastrar novo usuário\n");
+                            printf("Digite 2 para Atualizar cadastro de cliente\n");
                             printf("Digite 3 para Atualizar cadastro\n");
                             printf("Digite 4 para Remover usuario/cliente\n");
                             printf("Digite 5 para Retornar ao MENU PRINCIPAL\n");
@@ -97,24 +105,64 @@ int main()
                             case 1:
                                 printf("Informe o nome:\n");
                                 scanf("%s", clientes[quantidadeClientes].nome);
+                                fflush(stdin);
                                 printf("Informe o sobrenome:\n");
                                 scanf("%s", clientes[quantidadeClientes].sobrenome);
+                                fflush(stdin);
                                 printf("Informe o endereco:\n");
                                 scanf("%s", clientes[quantidadeClientes].endereco);
+                                fflush(stdin);
                                 printf("Informe o telefone:\n");
                                 scanf("%s", clientes[quantidadeClientes].telefone);
+                                fflush(stdin);
                                 printf("Informe o renda:\n");
                                 scanf("%f", clientes[quantidadeClientes].renda);
-                                quantidadeClientes++;
+                                quantidadeClientes = quantidadeClientes + 1;
                                 break;
                             case 2:
-                                printf("Atualizar cadastro\n");
+                                printf("Digite o nome do cliente: ");
+                                scanf("%s", nomeClienteRecebido);
                                 for(int i = 0; i < quantidadeClientes; i++){
-                                    printf("nome: %s id: %d", clientes[i].nome , i);
-                                }
-                                printf("Digite a id do cliente: ");
-                                scanf("%d", int &id);
+                                    if(nomeClienteRecebido == clientes[i].nome){
+                                        printf("Informe o que deseja altera");
+                                        printf("Nome: digite 1");
+                                        printf("Sobrenome: digite 2");
+                                        printf("Endereço: digite 3");
+                                        printf("Data de Nascimento: digite 4");
+                                        printf("Telefone: digite 5");
+                                        printf("Renda: digite 6");
+                                        printf("Voltar: digite 7");
+                                        int escolhaAttCliente;
+                                        do{
+                                            scanf("%d", &escolhaAttCliente);
+                                            switch(escolhaAttCliente){
+                                            case 1:
+                                                scanf("%s", clientes[i].nome);
+                                                break;
+                                            case 2:
+                                                scanf("%s", clientes[i].sobrenome);
+                                                break;
+                                            case 3:
+                                                scanf("%s", clientes[i].endereco);
+                                                break;
+                                            case 4:
+                                                scanf("%s", clientes[i].dataDeNascimento);
+                                                break;
+                                            case 5:
+                                                scanf("%s", clientes[i].telefone);
+                                                break;
+                                            case 6:
+                                                scanf("%f", clientes[i].renda);
+                                                break;
+                                            default:
+                                                printf("Entre com um valor válido!\n");
+                                                break;
+                                            }
 
+                                        }while(escolhaAttCliente != 7);
+
+                                    }
+                                }
                                 break;
                             case 3:
                                 printf("Remover usuario/cliente\n");
