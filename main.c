@@ -26,7 +26,7 @@ typedef struct
     char login[20];
     char senha[20];
     int acesso;
-    // acesso = 0 - funcionario acesso = 1 - admin
+
 }Usuario;
 typedef struct
 {
@@ -48,7 +48,7 @@ int main()
 {
     setlocale(LC_ALL, "Portuguese_Brazil");
     //Registro do numero de clientes, usuarios e produtos cadastrados.
-    int quantidadeUser = 2, quantidadeProdutos = 0, quantidadeClientes = 0;
+    int quantidadeUser = 3, quantidadeProdutos = 0, quantidadeClientes = 0;
     //variaveis auxiliares de dados recebidos pelo usuario
     char loginRecebido[25], senhaRecebida[25], nomeClienteRecebido[25], nomeUsarioRecebido[25],nomeProdutoRecebido[25];
     //variaveis para controle de menus e autenticaÃ§Ã£o de usuario
@@ -203,10 +203,13 @@ int main()
                             case 3:
                                 printf("Informe o login:\n");
                                 scanf("%s", usuarios[quantidadeUser].login);
+                                fflush(stdin);
                                 printf("Informe a senha:\n");
                                 scanf("%s", usuarios[quantidadeUser].senha);
+                                fflush(stdin);
                                 printf("Informe o tipo de acesso: \n 0 - funcionario \n 1 - administrador :\n");
                                 scanf("%d", &usuarios[quantidadeUser].acesso);
+                                fflush(stdin);
                                 printf("Informe o nome:\n");
                                 scanf("%s", usuarios[quantidadeUser].nome);
                                 fflush(stdin);
@@ -438,14 +441,14 @@ int main()
                         printf("MENU VENDAS/ORÇAMENTOS\n");
                         printf("Digite 1 para fazer um orçamento!\n");
                         printf("Digite 2 para emitir um relatorio\n");
-                        printf("Digite 4 para Retornar ao MENU PRINCIPAL\n");
+                        printf("Digite 3 para Retornar ao MENU PRINCIPAL\n");
                         do
                         {
                             scanf("%d", &menuVendas);
                             switch (menuVendas)
                             {
                             case 1:
-                                printf("Realizar um orçamento!\n");
+                                printf("Informe o consumo medio do ultimo ano em KWh !\n");
                                 break;
                             case 2:
                                 printf("Emitir um relatorio\n");
