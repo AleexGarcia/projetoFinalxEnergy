@@ -4,7 +4,7 @@
 #include <locale.h>
 
 
-struct Produto
+typedef struct
 {
     int id;
     char nome[25];
@@ -13,9 +13,9 @@ struct Produto
     float precoDeCompra;
     float precoDeVenda;
     int quantidadeEmEstoque;
-};
+}Produto;
 
-struct Usuario
+typedef struct
 {
     char nome[25];
     char sobrenome[25];
@@ -26,8 +26,9 @@ struct Usuario
     char login[20];
     char senha[20];
     int acesso;
-};
-struct Cliente
+    // acesso = 0 - funcionario acesso = 1 - admin
+}Usuario;
+typedef struct
 {
     char nome[25];
     char sobrenome[25];
@@ -35,27 +36,29 @@ struct Cliente
     char dataDeNascimento[10];
     char telefone[11];
     float renda;
-};
+}Cliente;
 
 int main()
 {
-    setlocale(LC_ALL, "Portuguese");
-    int quantidadeUser = 1;
-    int quantidadeProdutos = 0;
-    int quantidadeClientes = 0;
-    int autenticado = 0;
-    char login[25], senha[25];
-    char nomeClienteRecebido[25];
-    int id;
-    struct Usuario usuarios[quantidadeUser];
-    struct Produto produtos[quantidadeProdutos];
-    struct Cliente clientes[quantidadeClientes];
-    int menuInicial, menuPrincipal, menuUser, menuProduto, menuVendas;
-    for(int i = 0; i < quantidadeUser; i++){
-        printf("Entre informe o login e senha, respectivamente.\n Para realizar o 1Â° cadastro adminitrativo\n");
-        scanf("%s %s", usuarios[i].login, usuarios[i].senha);
-        usuarios[i].acesso = 3;
-    }
+    setlocale(LC_ALL, "Portuguese_Brazil");
+    //Registro do numero de clientes, usuarios e produtos cadastrados.
+    int quantidadeUser = 2, quantidadeProdutos = 0, quantidadeClientes = 0;
+    //variaveis auxiliares de dados recebidos pelo usuario
+    char loginRecebido[25], senhaRecebida[25], nomeClienteRecebido[25];
+    //variaveis para controle de menus e autenticaÃ§Ã£o de usuario
+    int menuInicial, menuPrincipal, menuUser, menuProduto, menuVendas, autenticado = 0, acesso = 0;
+    //array de armazenamento de usuarios, clientes e produtos
+    Usuario usuarios[quantidadeUser];
+    Produto produtos[quantidadeProdutos];
+    Cliente clientes[quantidadeClientes];
+    //defininindo um 1Â° user admin
+    strcpy(usuarios[0].login,"admin");
+    strcpy(usuarios[0].senha,"12345");
+    usuarios[0].acesso = 1;
+    //definindo um user funcionario
+    strcpy(usuarios[1].login,"funcionario");
+    strcpy(usuarios[1].senha,"12345");
+    usuarios[1].acesso = 0;
 
     do
     {
@@ -64,17 +67,18 @@ int main()
         switch (menuInicial)
         {
         case 1:
+            //recebendo login e senha
             printf("Login:\n ");
-            scanf("%s",login);
+            scanf("%s",loginRecebido);
             printf("Senha:\n ");
-            scanf("%s",senha);
-
+            scanf("%s",senhaRecebida);
+            //verificando se existe um user c/ este login e senha alterando autenticado = 1;
             for (int i = 0; i < quantidadeUser; i++)
             {
-
-                if (!strcmp(login ,usuarios[i].login) && !strcmp(senha,usuarios[i].senha))
+                if (!strcmp(loginRecebido ,usuarios[i].login) && !strcmp(senhaRecebida,usuarios[i].senha))
                 {
                     autenticado = 1;
+                    system("cls");
                 }
             }
 
@@ -83,9 +87,9 @@ int main()
                 do
                 {
                     printf("MENU PRINCIPAL\n");
-                    printf("Digite 1 para seÃ§Ã£o de usuarios/clientes\n");
-                    printf("Digite 2 para seÃ§Ã£o de produto\n");
-                    printf("Digite 3 para seÃ§Ã£o de vendas/orï¿½amentos\n");
+                    printf("Digite 1 para seção de usuários/clientes\n");
+                    printf("Digite 2 para seção de produto\n");
+                    printf("Digite 3 para seção de vendas/orçamentos\n");
                     printf("Digite 4 para Logout\n");
                     scanf("%d", &menuPrincipal);
                     switch (menuPrincipal)
@@ -93,11 +97,11 @@ int main()
                     case 1:
                         do
                         {
-                            printf("MENU USUÃRIO\n");
+                            printf("MENU USUÁRIO\n");
                             printf("Digite 1 para Cadastrar novo cliente\n");
                             printf("Digite 2 para Atualizar cadastro de cliente\n");
                             printf("Digite 3 para Atualizar cadastro\n");
-                            printf("Digite 4 para Remover usuario/cliente\n");
+                            printf("Digite 4 para Remover usuário/cliente\n");
                             printf("Digite 5 para Retornar ao MENU PRINCIPAL\n");
                             scanf("%d", &menuUser);
                             switch (menuUser)
@@ -127,7 +131,7 @@ int main()
                                         printf("Informe o que deseja altera");
                                         printf("Nome: digite 1");
                                         printf("Sobrenome: digite 2");
-                                        printf("EndereÃ§o: digite 3");
+                                        printf("Endereço: digite 3");
                                         printf("Data de Nascimento: digite 4");
                                         printf("Telefone: digite 5");
                                         printf("Renda: digite 6");
@@ -155,7 +159,7 @@ int main()
                                                 scanf("%f", clientes[i].renda);
                                                 break;
                                             default:
-                                                printf("Entre com um valor vÃ¡lido!\n");
+                                                printf("Entre com um valor válido!\n");
                                                 break;
                                             }
 
@@ -201,8 +205,8 @@ int main()
                         } while (menuProduto != 4);
                         break;
                     case 3:
-                        printf("MENU VENDAS/ORï¿½AMENTOS\n");
-                        printf("Digite 1 para fazer um orÃ§amento!\n");
+                        printf("MENU VENDAS/ORÇAMENTOS\n");
+                        printf("Digite 1 para fazer um orçamento!\n");
                         printf("Digite 2 para emitir um relatorio\n");
                         printf("Digite 4 para Retornar ao MENU PRINCIPAL\n");
                         do
@@ -211,7 +215,7 @@ int main()
                             switch (menuVendas)
                             {
                             case 1:
-                                printf("Realizar um orï¿½amento!\n");
+                                printf("Realizar um orçamento!\n");
                                 break;
                             case 2:
                                 printf("Emitir um relatorio\n");
@@ -226,6 +230,7 @@ int main()
                         break;
                     case 4:
                         printf("Logout");
+                        autenticado = 0;
                         break;
                     default:
                         break;
@@ -233,7 +238,7 @@ int main()
                 } while (menuPrincipal != 4);
                 break;
             }else{
-                printf("Login e/ou senha informados estÃ£o incorretos\n");
+                printf("\nLogin e/ou senha informados estão incorretos\n");
                 break;
             }
 
@@ -241,7 +246,7 @@ int main()
             printf("Encerrar o sistema\n");
             break;
         default:
-            printf("Entre com um valor vÃ¡lido\n");
+            printf("Entre com um valor válidos\n");
             break;
         }
 
