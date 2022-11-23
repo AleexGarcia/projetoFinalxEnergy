@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <locale.h>
-
+#include <Windows.h>
 
 typedef struct
 {
@@ -37,7 +37,13 @@ typedef struct
     char telefone[11];
     float renda;
 }Cliente;
-
+void limpar_tela(){
+  #ifdef _WIN32
+    system("cls");
+  # else
+    system("clear");
+  #endif
+}
 int main()
 {
     setlocale(LC_ALL, "Portuguese_Brazil");
@@ -78,7 +84,7 @@ int main()
                 if (!strcmp(loginRecebido ,usuarios[i].login) && !strcmp(senhaRecebida,usuarios[i].senha))
                 {
                     autenticado = 1;
-                    system("cls");
+                    limpar_tela();
                 }
             }
 
@@ -97,12 +103,14 @@ int main()
                     case 1:
                         do
                         {
+                            limpar_tela();
                             printf("MENU USUÁRIO\n");
                             printf("Digite 1 para Cadastrar novo cliente\n");
                             printf("Digite 2 para Atualizar cadastro de cliente\n");
-                            printf("Digite 3 para Atualizar cadastro\n");
-                            printf("Digite 4 para Remover usuário/cliente\n");
-                            printf("Digite 5 para Retornar ao MENU PRINCIPAL\n");
+                            printf("Digite 3 para cadastrar novo usuário\n");
+                            printf("Digite 4 para atualizar cadastro de usuários\n");
+                            printf("Digite 5 para Remover usuário/cliente\n");
+                            printf("Digite 6 para Retornar ao MENU PRINCIPAL\n");
                             scanf("%d", &menuUser);
                             switch (menuUser)
                             {
@@ -120,46 +128,71 @@ int main()
                                 scanf("%s", clientes[quantidadeClientes].telefone);
                                 fflush(stdin);
                                 printf("Informe o renda:\n");
-                                scanf("%f", clientes[quantidadeClientes].renda);
-                                quantidadeClientes = quantidadeClientes + 1;
+                                scanf("%f", &clientes[quantidadeClientes].renda);
+                                quantidadeClientes++;
                                 break;
                             case 2:
                                 printf("Digite o nome do cliente: ");
                                 scanf("%s", nomeClienteRecebido);
                                 for(int i = 0; i < quantidadeClientes; i++){
-                                    if(nomeClienteRecebido == clientes[i].nome){
-                                        printf("Informe o que deseja altera");
-                                        printf("Nome: digite 1");
-                                        printf("Sobrenome: digite 2");
-                                        printf("Endereço: digite 3");
-                                        printf("Data de Nascimento: digite 4");
-                                        printf("Telefone: digite 5");
-                                        printf("Renda: digite 6");
-                                        printf("Voltar: digite 7");
+                                    if(!strcmp(nomeClienteRecebido ,clientes[i].nome)){
+
                                         int escolhaAttCliente;
                                         do{
+                                            limpar_tela();
+                                            printf("Informe o que deseja altera");
+                                            printf("Nome: digite 1");
+                                            printf("Sobrenome: digite 2");
+                                            printf("Endereço: digite 3");
+                                            printf("Data de Nascimento: digite 4");
+                                            printf("Telefone: digite 5");
+                                            printf("Renda: digite 6");
+                                            printf("Voltar: digite 7");
                                             scanf("%d", &escolhaAttCliente);
                                             switch(escolhaAttCliente){
                                             case 1:
+                                                printf("Informe o nome:\n");
                                                 scanf("%s", clientes[i].nome);
+                                                printf("Nome atualizado com sucesso!\n");
+                                                Sleep(1000);
                                                 break;
                                             case 2:
+                                                printf("Informe o Sobrenome:\n");
                                                 scanf("%s", clientes[i].sobrenome);
+                                                printf("Sobrenome atualizado com sucesso!\n");
+                                                Sleep(1000);
                                                 break;
                                             case 3:
+                                                printf("Informe o endereço:\n");
                                                 scanf("%s", clientes[i].endereco);
+                                                printf("Endereço atualizado com sucesso!\n");
+                                                Sleep(1000);
                                                 break;
                                             case 4:
+                                                printf("Informe a data de nascimento:\n");
                                                 scanf("%s", clientes[i].dataDeNascimento);
+                                                printf("Data de nascimento atualizado com sucesso!\n");
+                                                Sleep(1000);
                                                 break;
                                             case 5:
+                                                printf("Informe o telefone:\n");
                                                 scanf("%s", clientes[i].telefone);
+                                                printf("Telefone atualizado com sucesso!\n");
+                                                Sleep(1000);
                                                 break;
                                             case 6:
-                                                scanf("%f", clientes[i].renda);
+                                                printf("Informe a renda do cliente:\n");
+                                                scanf("%f", &clientes[i].renda);
+                                                printf("Renda atualizado com sucesso!\n");
+                                                Sleep(1000);
+                                                break;
+                                            case 7:
+                                                printf("Retornando ao menu de usuario!\n");
+                                                Sleep(1000);
                                                 break;
                                             default:
-                                                printf("Entre com um valor válido!\n");
+                                                printf("\n --- Entre com um valor válido! ---\n");
+                                                Sleep(1000);
                                                 break;
                                             }
 
@@ -180,6 +213,7 @@ int main()
                         } while (menuUser != 5);
                         break;
                     case 2:
+                        limpar_tela();
                         printf("MENU PRODUTO\n");
                         printf("Digite 1 para Cadastrar novo produto\n");
                         printf("Digite 2 para Atualizar produto\n");
@@ -205,6 +239,7 @@ int main()
                         } while (menuProduto != 4);
                         break;
                     case 3:
+                        limpar_tela();
                         printf("MENU VENDAS/ORÇAMENTOS\n");
                         printf("Digite 1 para fazer um orçamento!\n");
                         printf("Digite 2 para emitir um relatorio\n");
@@ -229,7 +264,8 @@ int main()
                         } while (menuVendas != 3);
                         break;
                     case 4:
-                        printf("Logout");
+                        limpar_tela();
+                        printf("Logout realizado com sucesso!\n");
                         autenticado = 0;
                         break;
                     default:
@@ -243,7 +279,8 @@ int main()
             }
 
         case 2:
-            printf("Encerrar o sistema\n");
+            limpar_tela();
+            printf("Sistema encerrado!\n");
             break;
         default:
             printf("Entre com um valor válidos\n");
