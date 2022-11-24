@@ -44,6 +44,12 @@ void limpar_tela(){
     system("clear");
   #endif
 }
+void removaQuebraLinha(char texto[100]){
+    size_t ln = strlen(texto) - 1;
+    if(*texto && texto[ln] == '\n'){
+       texto[ln] = '\0';
+    }
+}
 int main()
 {
     setlocale(LC_ALL, "Portuguese_Brazil");
@@ -51,21 +57,54 @@ int main()
     int quantidadeUser = 3, quantidadeProdutos = 0, quantidadeClientes = 0;
     //variaveis auxiliares de dados recebidos pelo usuario
     char loginRecebido[25], senhaRecebida[25], nomeClienteRecebido[25], nomeUsarioRecebido[25],nomeProdutoRecebido[25];
-    //variaveis para controle de menus e autenticação de usuario
+    //variaveis para controle de menus e autenticaÃ§Ã£o de usuario
     int menuInicial, menuPrincipal, menuUser, menuProduto, menuVendas, autenticado = 0, acesso = 0;
     //array de armazenamento de usuarios, clientes e produtos
     Usuario usuarios[quantidadeUser];
     Produto produtos[quantidadeProdutos];
     Cliente clientes[quantidadeClientes];
-    //defininindo um 1° user admin
+
+    FILE *fp;
+    //preenchendo o array de produtos utilizando um arquivo externo
+    fp = fopen("produtos.txt","r");
+    if(fp != NULL){
+        while(!feof(fp))
+        {
+            fgets(produtos[quantidadeProdutos].nome,99,fp);
+            fflush(stdin);
+            removaQuebraLinha(produtos[quantidadeProdutos].nome);
+            fgets(produtos[quantidadeProdutos].fornecedor,99,fp);
+            fflush(stdin);
+            removaQuebraLinha(produtos[quantidadeProdutos].fornecedor);
+            fgets(produtos[quantidadeProdutos].marca,99,fp);
+            fflush(stdin);
+            removaQuebraLinha(produtos[quantidadeProdutos].marca);
+            char aux[25];
+            fgets(aux,25,fp);
+            fflush(stdin);
+            produtos[quantidadeProdutos].precoDeCompra = atoi(aux);
+            fgets(aux,25,fp);
+            fflush(stdin);
+            produtos[quantidadeProdutos].precoDeVenda = atoi(aux);
+            fgets(aux,25,fp);
+            fflush(stdin);
+            produtos[quantidadeProdutos].quantidadeEmEstoque = atoi(aux);
+            produtos[quantidadeProdutos].id = quantidadeProdutos;
+            quantidadeProdutos++;
+
+        }
+        quantidadeProdutos-=1;
+    }
+    fclose(fp);
+    //definindo os usuarios
     strcpy(usuarios[0].login,"admin");
     strcpy(usuarios[0].senha,"12345");
     usuarios[0].acesso = 1;
-    //definindo um user funcionario
+
     strcpy(usuarios[1].login,"funcionario");
     strcpy(usuarios[1].senha,"12345");
     usuarios[1].acesso = 0;
-
+    
     do
     {
         printf("MENU INICIAL \n Digite 1 p/ login. \n Digite 2 p/ Sair do Sistema.\n");
@@ -79,8 +118,10 @@ int main()
             printf("Senha:\n ");
             scanf("%s",senhaRecebida);
             //verificando se existe um user c/ este login e senha alterando autenticado = 1;
-            for (int i = 0; i < quantidadeUser; i++)
+            for (int i = 0; i < quantidadeUser - 1; i++)
             {
+
+                printf("id: %d usuario: %s senha: %s\n",i,usuarios[i].login, usuarios[i].senha);
                 if (!strcmp(loginRecebido ,usuarios[i].login) && !strcmp(senhaRecebida,usuarios[i].senha))
                 {
                     autenticado = 1;
@@ -93,9 +134,9 @@ int main()
                 do
                 {
                     printf("MENU PRINCIPAL\n");
-                    printf("Digite 1 para se��o de usu�rios/clientes\n");
-                    printf("Digite 2 para se��o de produto\n");
-                    printf("Digite 3 para se��o de vendas/or�amentos\n");
+                    printf("Digite 1 para seção de usuários/clientes\n");
+                    printf("Digite 2 para seção de produto\n");
+                    printf("Digite 3 para seção de vendas/orçamentos\n");
                     printf("Digite 4 para Logout\n");
                     scanf("%d", &menuPrincipal);
                     switch (menuPrincipal)
@@ -104,11 +145,11 @@ int main()
                         do
                         {
                             limpar_tela();
-                            printf("MENU USU�RIO\n");
+                            printf("MENU USUÁRIO\n");
                             printf("Digite 1 para Cadastrar novo cliente\n");
                             printf("Digite 2 para Atualizar cadastro de cliente\n");
-                            printf("Digite 3 para Cadastrar novo usu�rio\n");
-                            printf("Digite 4 para Atualizar cadastro de usu�rios\n");
+                            printf("Digite 3 para Cadastrar novo usuário\n");
+                            printf("Digite 4 para Atualizar cadastro de usuários\n");
                             printf("Digite 5 para Retornar ao MENU PRINCIPAL\n");
                             scanf("%d", &menuUser);
                             switch (menuUser)
@@ -142,7 +183,7 @@ int main()
                                             printf("Informe o que deseja altera");
                                             printf("Nome: digite 1");
                                             printf("Sobrenome: digite 2");
-                                            printf("Endere�o: digite 3");
+                                            printf("Endereço: digite 3");
                                             printf("Data de Nascimento: digite 4");
                                             printf("Telefone: digite 5");
                                             printf("Renda: digite 6");
@@ -162,9 +203,9 @@ int main()
                                                 Sleep(1000);
                                                 break;
                                             case 3:
-                                                printf("Informe o endere�o:\n");
+                                                printf("Informe o endereço:\n");
                                                 scanf("%s", clientes[i].endereco);
-                                                printf("Endere�o atualizado com sucesso!\n");
+                                                printf("Endereço atualizado com sucesso!\n");
                                                 Sleep(1000);
                                                 break;
                                             case 4:
@@ -190,7 +231,7 @@ int main()
                                                 Sleep(1000);
                                                 break;
                                             default:
-                                                printf("\n --- Entre com um valor v�lido! ---\n");
+                                                printf("\n --- Entre com um valor válido! ---\n");
                                                 Sleep(1000);
                                                 break;
                                             }
@@ -244,7 +285,7 @@ int main()
                                             printf("Acesso: digite 3");
                                             printf("Nome: digite 4");
                                             printf("Sobrenome: digite 5");
-                                            printf("Endere�o: digite 6");
+                                            printf("Endereço: digite 6");
                                             printf("Data de Nascimento: digite 7");
                                             printf("Telefone: digite 8");
                                             printf("Salario: digite 9");
@@ -282,9 +323,9 @@ int main()
                                                 Sleep(1000);
                                                 break;
                                             case 6:
-                                                printf("Informe o endere�o:\n");
+                                                printf("Informe o endereço:\n");
                                                 scanf("%s", usuarios[i].endereco);
-                                                printf("Endere�o atualizado com sucesso!\n");
+                                                printf("Endereço atualizado com sucesso!\n");
                                                 Sleep(1000);
                                                 break;
                                             case 7:
@@ -310,7 +351,7 @@ int main()
                                                 Sleep(1000);
                                                 break;
                                             default:
-                                                printf("\n --- Entre com um valor v�lido! ---\n");
+                                                printf("\n --- Entre com um valor válido! ---\n");
                                                 Sleep(1000);
                                                 break;
                                             }
@@ -326,37 +367,49 @@ int main()
                         } while (menuUser != 5);
                         break;
                     case 2:
-                        limpar_tela();
-                        printf("MENU PRODUTO\n");
-                        printf("Digite 1 para Cadastrar novo produto\n");
-                        printf("Digite 2 para Atualizar produto em estoque\n");
-                        printf("Digite 3 para Retornar ao MENU PRINCIPAL\n");
+
                         do
                         {
+                            limpar_tela();
+                            printf("MENU PRODUTO\n");
+                            printf("Digite 1 para Cadastrar novo produto\n");
+                            printf("Digite 2 para Atualizar produto em estoque\n");
+                            printf("Digite 3 para Retornar ao MENU PRINCIPAL\n");
                             scanf("%d", &menuProduto);
                             switch (menuProduto)
                             {
                             case 1:
+                                //abrindo um txt para guardar os dados
+                                fp = fopen("produtos.txt","a+");
                                 printf("Informe o nome do produto:\n");
                                 scanf("%s", produtos[quantidadeProdutos].nome);
+                                //gravando o dado obtido no arquivo
+                                fprintf(fp, "%s\n",produtos[quantidadeProdutos].nome);
                                 fflush(stdin);
                                 printf("Informe o fornecedor:\n");
                                 scanf("%s", produtos[quantidadeProdutos].fornecedor);
+                                fprintf(fp, "%s\n",produtos[quantidadeProdutos].fornecedor);
                                 fflush(stdin);
                                 printf("Informe a marca do produto:\n");
                                 scanf("%s", produtos[quantidadeProdutos].marca);
+                                fprintf(fp, "%s\n",produtos[quantidadeProdutos].marca);
                                 fflush(stdin);
-                                printf("Informe o pre�o de compra:\n");
+                                printf("Informe o preço de compra:\n");
                                 scanf("%f", &produtos[quantidadeProdutos].precoDeCompra);
+                                fprintf(fp, "%f\n",produtos[quantidadeProdutos].precoDeCompra);
                                 fflush(stdin);
-                                printf("Informe o pre�o de venda:\n");
+                                printf("Informe o preço de venda:\n");
                                 scanf("%f", &produtos[quantidadeProdutos].precoDeVenda);
+                                fprintf(fp, "%f\n",produtos[quantidadeProdutos].precoDeVenda);
                                 fflush(stdin);
                                 printf("Informe o quantidade comprada:\n");
                                 scanf("%d", &produtos[quantidadeProdutos].quantidadeEmEstoque);
+                                fprintf(fp, "%d\n",produtos[quantidadeProdutos].quantidadeEmEstoque);
                                 fflush(stdin);
                                 produtos[quantidadeProdutos].id = quantidadeProdutos;
                                 quantidadeProdutos++;
+                                //fechando o arquivo
+                                fclose(fp);
                                 break;
                             case 2:
                                 printf("Digite o nome do produto: ");
@@ -371,8 +424,8 @@ int main()
                                             printf("Nome: digite 1");
                                             printf("Fornecedor: digite 2");
                                             printf("Marca: digite 3");
-                                            printf("Pre�o de compra: digite 4");
-                                            printf("Pre�o de venda: digite 5");
+                                            printf("Preço de compra: digite 4");
+                                            printf("Preço de venda: digite 5");
                                             printf("Quantidade em estoque: digite 6");
                                             printf("Voltar: digite 7");
                                             scanf("%d", &escolhaAttProduto);
@@ -396,15 +449,15 @@ int main()
                                                 Sleep(1000);
                                                 break;
                                             case 4:
-                                                printf("Informe o pre�o de Compra:\n");
+                                                printf("Informe o preço de Compra:\n");
                                                 scanf("%f", &produtos[i].precoDeCompra);
                                                 printf("Preco de compra atualizado com sucesso!\n");
                                                 Sleep(1000);
                                                 break;
                                             case 5:
-                                                printf("Informe o pre�o de venda:\n");
+                                                printf("Informe o preço de venda:\n");
                                                 scanf("%f", &produtos[i].precoDeVenda);
-                                                printf("Pre�o de venda atualizado com sucesso!\n");
+                                                printf("Preço de venda atualizado com sucesso!\n");
                                                 Sleep(1000);
                                                 break;
                                             case 6:
@@ -418,7 +471,7 @@ int main()
                                                 Sleep(1000);
                                                 break;
                                             default:
-                                                printf("\n --- Entre com um valor v�lido! ---\n");
+                                                printf("\n --- Entre com um valor válido! ---\n");
                                                 Sleep(1000);
                                                 break;
                                             }
@@ -432,23 +485,29 @@ int main()
                                 printf("Retornar ao menu principal\n");
                                 break;
                             default:
+                                printf("Informe um valor válido");
                                 break;
                             }
-                        } while (menuProduto != 4);
+                        } while (menuProduto != 3);
                         break;
                     case 3:
                         limpar_tela();
-                        printf("MENU VENDAS/OR�AMENTOS\n");
-                        printf("Digite 1 para fazer um or�amento!\n");
+                        printf("MENU VENDAS/ORÇAMENTOS\n");
+                        printf("Digite 1 para fazer um orçamento!\n");
                         printf("Digite 2 para emitir um relatorio\n");
                         printf("Digite 3 para Retornar ao MENU PRINCIPAL\n");
+                        float consumoEnergeticoMedio;
                         do
                         {
+
                             scanf("%d", &menuVendas);
                             switch (menuVendas)
                             {
                             case 1:
+
                                 printf("Informe o consumo medio do ultimo ano em KWh !\n");
+                                scanf("%f", consumoEnergeticoMedio);
+
                                 break;
                             case 2:
                                 printf("Emitir um relatorio\n");
@@ -472,7 +531,7 @@ int main()
                 } while (menuPrincipal != 4);
                 break;
             }else{
-                printf("\nLogin e/ou senha informados est�o incorretos\n");
+                printf("\nLogin e/ou senha informados estão incorretos\n");
                 break;
             }
 
@@ -481,7 +540,7 @@ int main()
             printf("Sistema encerrado!\n");
             break;
         default:
-            printf("Entre com um valor v�lidos\n");
+            printf("Entre com um valor válidos\n");
             break;
         }
 
