@@ -3,6 +3,7 @@
 #include <string.h>
 #include <locale.h>
 #include <Windows.h>
+#include <math.h>
 
 typedef struct
 {
@@ -10,6 +11,7 @@ typedef struct
     char nome[25];
     char fornecedor[25];
     char marca[25];
+    int potencia;
     float precoDeCompra;
     float precoDeVenda;
     int quantidadeEmEstoque;
@@ -49,7 +51,12 @@ void removaQuebraLinha(char texto[100]){
     if(*texto && texto[ln] == '\n'){
        texto[ln] = '\0';
     }
-}
+  }
+int calculaNumPlacasSol(float consumoMedioAnual, float potenciaPlaca, float TempoMedioExposicaoSolar, float rendimento){
+    enum
+    return ceil( consumoMedioAnual / ( potenciaPlaca * TempoMedioExposicaoSolar * rendimento*30));
+
+  }
 int main()
 {
     setlocale(LC_ALL, "Portuguese_Brazil");
@@ -394,11 +401,11 @@ int main()
                                 scanf("%s", produtos[quantidadeProdutos].marca);
                                 fprintf(fp, "%s\n",produtos[quantidadeProdutos].marca);
                                 fflush(stdin);
-                                printf("Informe o preÃ§o de compra:\n");
+                                printf("Informe o preço de compra:\n");
                                 scanf("%f", &produtos[quantidadeProdutos].precoDeCompra);
                                 fprintf(fp, "%f\n",produtos[quantidadeProdutos].precoDeCompra);
                                 fflush(stdin);
-                                printf("Informe o preÃ§o de venda:\n");
+                                printf("Informe o preço de venda:\n");
                                 scanf("%f", &produtos[quantidadeProdutos].precoDeVenda);
                                 fprintf(fp, "%f\n",produtos[quantidadeProdutos].precoDeVenda);
                                 fflush(stdin);
@@ -457,7 +464,7 @@ int main()
                                             case 5:
                                                 printf("Informe o preço de venda:\n");
                                                 scanf("%f", &produtos[i].precoDeVenda);
-                                                printf("PreÃ§o de venda atualizado com sucesso!\n");
+                                                printf("Preço de venda atualizado com sucesso!\n");
                                                 Sleep(1000);
                                                 break;
                                             case 6:
@@ -498,16 +505,31 @@ int main()
                         printf("Digite 2 para emitir um relatorio\n");
                         printf("Digite 3 para Retornar ao MENU PRINCIPAL\n")  ;
                         float consumoEnergeticoMedio;
+                        float tempoMedioExposicaoSolar;
+                        float rendimentoDoSistema;
+                        float potenciaDaPlaca;
+                        int numeroDePlacas;
+                        float potenciaDePico;
                         do
                         {
-
                             scanf("%d", &menuVendas);
                             switch (menuVendas)
                             {
                             case 1:
-
-                                printf("Informe o consumo medio do ultimo ano em KWh !\n");
-                                scanf("%f", consumoEnergeticoMedio);
+                                printf("Informe o consumo medio do ultimo ano em KWh:\n");
+                                scanf("%f", &consumoEnergeticoMedio);
+                                fflush(stdin);
+                                printf("Informe a potencia da placa em Kw:\n");
+                                scanf("%f", &potenciaDaPlaca);
+                                fflush(stdin);
+                                printf("Informe tempo de exposicao em h:\n");
+                                scanf("%f", &tempoMedioExposicaoSolar);
+                                fflush(stdin);
+                                printf("Informe rendimento, entre 0 e 1:\n");
+                                scanf("%f", &rendimentoDoSistema);
+                                fflush(stdin);
+                                numeroDePlacas = calculaNumPlacasSol(consumoEnergeticoMedio,potenciaDaPlaca,tempoMedioExposicaoSolar,rendimentoDoSistema);
+                                potenciaDePico = numeroDePlacas*potenciaDaPlaca;
 
                                 break;
                             case 2:
