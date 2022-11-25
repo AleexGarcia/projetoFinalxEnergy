@@ -52,9 +52,9 @@ void removaQuebraLinha(char texto[100]){
        texto[ln] = '\0';
     }
   }
-int calculaNumPlacasSol(float consumoMedioAnual, float potenciaPlaca, float TempoMedioExposicaoSolar, float rendimento){
-    enum
-    return ceil( consumoMedioAnual / ( potenciaPlaca * TempoMedioExposicaoSolar * rendimento*30));
+int calculaNumPlacasSol(float consumoMedioAnual, float potenciaPlaca){
+
+    return ceil( consumoMedioAnual / ( potenciaPlaca * 5 * 0.8*30));
 
   }
 int main()
@@ -499,38 +499,33 @@ int main()
                         } while (menuProduto != 3);
                         break;
                     case 3:
-                        limpar_tela();
-                        printf("MENU VENDAS/ORÇAMENTOS\n");
-                        printf("Digite 1 para fazer um orçamento!\n");
-                        printf("Digite 2 para emitir um relatorio\n");
-                        printf("Digite 3 para Retornar ao MENU PRINCIPAL\n")  ;
+
                         float consumoEnergeticoMedio;
-                        float tempoMedioExposicaoSolar;
-                        float rendimentoDoSistema;
-                        float potenciaDaPlaca;
+                        int potenciaDaPlaca;
                         int numeroDePlacas;
                         float potenciaDePico;
+
                         do
                         {
-                            scanf("%d", &menuVendas);
+                          limpar_tela();
+                          printf("MENU VENDAS/ORÇAMENTOS\n");
+                          printf("Digite 1 para fazer um orçamento!\n");
+                          printf("Digite 2 para emitir um relatorio de vendas\n");
+                          printf("Digite 3 para Retornar ao MENU PRINCIPAL\n");
+                          scanf("%d", &menuVendas);
                             switch (menuVendas)
                             {
                             case 1:
                                 printf("Informe o consumo medio do ultimo ano em KWh:\n");
                                 scanf("%f", &consumoEnergeticoMedio);
                                 fflush(stdin);
-                                printf("Informe a potencia da placa em Kw:\n");
-                                scanf("%f", &potenciaDaPlaca);
+                                printf("Informe o numero da potencia da placa:\n");
+                                scanf("%d", &potenciaDaPlaca);
                                 fflush(stdin);
-                                printf("Informe tempo de exposicao em h:\n");
-                                scanf("%f", &tempoMedioExposicaoSolar);
-                                fflush(stdin);
-                                printf("Informe rendimento, entre 0 e 1:\n");
-                                scanf("%f", &rendimentoDoSistema);
-                                fflush(stdin);
-                                numeroDePlacas = calculaNumPlacasSol(consumoEnergeticoMedio,potenciaDaPlaca,tempoMedioExposicaoSolar,rendimentoDoSistema);
-                                potenciaDePico = numeroDePlacas*potenciaDaPlaca;
-
+                                numeroDePlacas = calculaNumPlacasSol(consumoEnergeticoMedio,potenciaDaPlaca);
+                                potenciaDePico = numeroDePlacas * potenciaDaPlaca;
+                                printf("Numero de Placas de %d WP: %d\n", potenciaDaPlaca, numeroDePlacas);
+                                printf("Potencia minima do inversor em KW: %d\n", potenciaDePico);
                                 break;
                             case 2:
                                 printf("Emitir um relatorio\n");
