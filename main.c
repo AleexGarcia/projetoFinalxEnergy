@@ -65,7 +65,7 @@ int main()
     //variaveis auxiliares de dados recebidos pelo usuario
     char loginRecebido[25], senhaRecebida[25], nomeClienteRecebido[25], nomeUsarioRecebido[25],nomeProdutoRecebido[25];
     //variaveis para controle de menus e autenticacao de usuario
-    int menuInicial, menuPrincipal, menuUser, menuProduto, menuVendas, autenticado = 0, acesso = 0;
+    int menuInicial, menuPrincipal, menuUser, menuProduto, menuVendas, autenticado = 0, acesso;
     //array de armazenamento de usuarios, clientes e produtos
     Usuario usuarios[quantidadeUser];
     Produto produtos[quantidadeProdutos];
@@ -130,6 +130,7 @@ int main()
                 if (!strcmp(loginRecebido ,usuarios[i].login) && !strcmp(senhaRecebida,usuarios[i].senha))
                 {
                     autenticado = 1;
+                    acesso = usuarios[i].acesso;
                     limpar_tela();
                     break;
                 }
@@ -155,10 +156,20 @@ int main()
                             printf("MENU USUARIOS\n");
                             printf("Digite 1 para Cadastrar novo cliente\n");
                             printf("Digite 2 para Atualizar cadastro de cliente\n");
-                            printf("Digite 3 para Cadastrar novo usuarios\n");
-                            printf("Digite 4 para Atualizar cadastro de usuarios\n");
-                            printf("Digite 5 para Retornar ao MENU PRINCIPAL\n");
-                            scanf("%d", &menuUser);
+                            if(acesso != 1) {
+                              printf("Digite 3 para Retornar ao MENU PRINCIPAL\n");
+                              scanf("%d", &menuUser);
+                              if(menuUser == 3){
+                                menuUser = 5;
+                              }else if(menuUser == 4){
+                                menuUser = 6;
+                              }
+                            }else{
+                              printf("Digite 3 para Cadastrar novo usuarios\n");
+                              printf("Digite 4 para Atualizar cadastro de usuarios\n");
+                              printf("Digite 5 para Retornar ao MENU PRINCIPAL\n");
+                              scanf("%d", &menuUser);
+                            }
                             switch (menuUser)
                             {
                             case 1:
@@ -499,20 +510,26 @@ int main()
                         } while (menuProduto != 3);
                         break;
                     case 3:
-
-                        float consumoEnergeticoMedio;
-                        int potenciaDaPlaca;
-                        int numeroDePlacas;
-                        float potenciaDePico;
-
                         do
                         {
+                          float consumoEnergeticoMedio, potenciaDePico;
+                          int potenciaDaPlaca, numeroDePlacas;
                           limpar_tela();
                           printf("MENU VENDAS/ORÇAMENTOS\n");
                           printf("Digite 1 para fazer um orçamento!\n");
-                          printf("Digite 2 para emitir um relatorio de vendas\n");
-                          printf("Digite 3 para Retornar ao MENU PRINCIPAL\n");
-                          scanf("%d", &menuVendas);
+                          if(acesso != 1){
+                            printf("Digite 2 para Retornar ao MENU PRINCIPAL\n");
+                            scanf("%d", &menuVendas);
+                            if(menuVendas == 2){
+                              menuVendas = 3;
+                            }else if(menuVendas == 3){
+                              menuVendas = 4;
+                            }
+                          }else{
+                            printf("Digite 2 para Emitir um relatorio de vendas\n");
+                            printf("Digite 3 para Retornar ao MENU PRINCIPAL\n");
+                            scanf("%d", &menuVendas);
+                          }
                             switch (menuVendas)
                             {
                             case 1:
@@ -526,6 +543,9 @@ int main()
                                 potenciaDePico = numeroDePlacas * potenciaDaPlaca;
                                 printf("Numero de Placas de %d WP: %d\n", potenciaDaPlaca, numeroDePlacas);
                                 printf("Potencia minima do inversor em KW: %d\n", potenciaDePico);
+                                printf("Estruta para as placas");
+                                printf("Cabeamento");
+                                printf("conectores");
                                 break;
                             case 2:
                                 printf("Emitir um relatorio\n");

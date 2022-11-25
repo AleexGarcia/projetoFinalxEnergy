@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1669389142 source:c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<locale.h>
+	<Windows.h>
+	<math.h>
+
