@@ -28,6 +28,7 @@ typedef struct
     char login[20];
     char senha[20];
     int acesso;
+    int id;
 
 }Usuario;
 typedef struct
@@ -52,18 +53,30 @@ void removaQuebraLinha(char texto[100]){
        texto[ln] = '\0';
     }
   }
+void exibeListaDeUsuarios(Usuario usuarios[], int quantidadeUsuarios){
+    for(int i = 0; i < quantidadeUsuarios - 1; i++){
+        printf("id: %d | nome: %s | sobrenome: %s | telefone: %s \n", usuarios[i].id, usuarios[i].nome, usuarios[i].sobrenome, usuarios[i].telefone);
+    }
+}
 int calculaNumPlacasSol(float consumoMedioAnual, float potenciaPlaca){
 
     return ceil( consumoMedioAnual / ( potenciaPlaca * 5 * 0.8*30));
 
   }
+int findIndex(Usuario usuarios[], int quantidadeUsuarios, int id){
+    for(int i = 0; i < quantidadeUsuarios; i++){
+        if(usuarios[i].id == id){
+            return i;
+        }
+    }
+}
 int main()
 {
     setlocale(LC_ALL, "Portuguese_Brazil");
     //Registro do numero de clientes, usuarios e produtos cadastrados.
-    int quantidadeUser = 3, quantidadeProdutos = 0, quantidadeClientes = 0;
+    int quantidadeUser = 2, quantidadeProdutos = 0, quantidadeClientes = 0;
     //variaveis auxiliares de dados recebidos pelo usuario
-    char loginRecebido[25], senhaRecebida[25], nomeClienteRecebido[25], nomeUsarioRecebido[25],nomeProdutoRecebido[25];
+    char loginRecebido[25], senhaRecebida[25], nomeClienteRecebido[25],idUsarioRecebido[25],nomeProdutoRecebido[25];
     //variaveis para controle de menus e autenticacao de usuario
     int menuInicial, menuPrincipal, menuUser, menuProduto, menuVendas, autenticado = 0, acesso;
     //array de armazenamento de usuarios, clientes e produtos
@@ -106,11 +119,19 @@ int main()
     //definindo os usuarios
     strcpy(usuarios[0].login,"admin");
     strcpy(usuarios[0].senha,"12345");
+    strcpy(usuarios[0].nome,"admin");
+    strcpy(usuarios[0].sobrenome,"admin");
+    strcpy(usuarios[0].telefone,"99999999999");
+    usuarios[0].id = 1;
     usuarios[0].acesso = 1;
 
     strcpy(usuarios[1].login,"funcionario");
     strcpy(usuarios[1].senha,"12345");
+    strcpy(usuarios[1].telefone,"99999999999");
+    strcpy(usuarios[1].nome,"funcionario");
+    strcpy(usuarios[1].sobrenome,"funcionario");
     usuarios[1].acesso = 0;
+    usuarios[1].id = 2;
 
     do
     {
@@ -125,7 +146,7 @@ int main()
             printf("Senha:\n ");
             scanf("%s",senhaRecebida);
             //verificando se existe um user c/ este login e senha alterando autenticado = 1;
-            for (int i = 0; i < quantidadeUser - 1; i++)
+            for (int i = 0; i < quantidadeUser; i++)
             {
                 if (!strcmp(loginRecebido ,usuarios[i].login) && !strcmp(senhaRecebida,usuarios[i].senha))
                 {
@@ -260,6 +281,7 @@ int main()
                                 }
                                 break;
                             case 3:
+                                quantidadeUser++;
                                 printf("Informe o login:\n");
                                 scanf("%s", usuarios[quantidadeUser].login);
                                 fflush(stdin);
@@ -286,98 +308,96 @@ int main()
                                 fflush(stdin);
                                 printf("Informe o salario:\n");
                                 scanf("%f", &usuarios[quantidadeUser].salario);
-                                quantidadeUser++;
                                 break;
                             case 4:
-                                printf("Digite o nome do usuario: ");
-                                scanf("%s", nomeUsarioRecebido);
-                                for(int i = 0; i < quantidadeUser; i++){
-                                    if(!strcmp(nomeUsarioRecebido ,usuarios[i].nome)){
-
-                                        int escolhaAttUsuario;
-                                        do{
-                                            limpar_tela();
-                                            printf("Informe o que deseja altera");
-                                            printf("Login: digite 1");
-                                            printf("Senha: digite 2");
-                                            printf("Acesso: digite 3");
-                                            printf("Nome: digite 4");
-                                            printf("Sobrenome: digite 5");
-                                            printf("Endereço: digite 6");
-                                            printf("Data de Nascimento: digite 7");
-                                            printf("Telefone: digite 8");
-                                            printf("Salario: digite 9");
-                                            printf("Voltar: digite 10");
-                                            scanf("%d", &escolhaAttUsuario);
-                                            switch(escolhaAttUsuario){
-                                            case 1:
-                                              printf("Informe o login:\n");
-                                              scanf("%s", usuarios[i].login);
-                                              printf("Login atualizado com sucesso!\n");
-                                              Sleep(1000);
-                                              break;
-                                            case 2:
-                                              printf("Informe o senha:\n");
-                                              scanf("%s", usuarios[i].senha);
-                                              printf("Senha atualizado com sucesso!\n");
-                                              Sleep(1000);
-                                              break;
-                                            case 3:
-                                              printf("Informe o acesso:\n");
-                                              scanf("%d", &usuarios[i].acesso);
-                                              printf("Acesso atualizado com sucesso!\n");
-                                              Sleep(1000);
-                                              break;
-                                            case 4:
-                                              printf("Informe o nome:\n");
-                                              scanf("%s", usuarios[i].nome);
-                                              printf("Nome atualizado com sucesso!\n");
-                                              Sleep(1000);
-                                              break;
-                                            case 5:
-                                              printf("Informe o Sobrenome:\n");
-                                              scanf("%s", usuarios[i].sobrenome);
-                                              printf("Sobrenome atualizado com sucesso!\n");
-                                              Sleep(1000);
-                                              break;
-                                            case 6:
-                                              printf("Informe o endereço:\n");
-                                              scanf("%s", usuarios[i].endereco);
-                                              printf("Endereço atualizado com sucesso!\n");
-                                              Sleep(1000);
-                                              break;
-                                            case 7:
-                                              printf("Informe a data de nascimento:\n");
-                                              scanf("%s", usuarios[i].dataDeNascimento);
-                                              printf("Data de nascimento atualizado com sucesso!\n");
-                                              Sleep(1000);
-                                              break;
-                                            case 8:
-                                              printf("Informe o telefone:\n");
-                                              scanf("%s", usuarios[i].telefone);
-                                              printf("Telefone atualizado com sucesso!\n");
-                                              Sleep(1000);
-                                              break;
-                                            case 9:
-                                              printf("Informe a renda do cliente:\n");
-                                              scanf("%f", &usuarios[i].salario);
-                                              printf("Renda atualizado com sucesso!\n");
-                                              Sleep(1000);
-                                              break;
-                                            case 10:
-                                              printf("Retornando ao menu de usuario!\n");
-                                              Sleep(1000);
-                                              break;
-                                            default:
-                                              printf("\n --- Entre com um valor vÃ¡lido! ---\n");
-                                              Sleep(1000);
-                                              break;
-                                            }
-
-                                          }while(escolhaAttUsuario != 10);
-
+                                exibeListaDeUsuarios(usuarios, quantidadeUser);
+                                printf("Digite o id referente ao usuario que deseja atualizar ou 0 para retornar: ");
+                                scanf("%d", idUsarioRecebido);
+                                if(idUsarioRecebido != 0){
+                                    int index = findIndex(usuarios, quantidadeUser, idUsarioRecebido);
+                                    int escolhaAttUsuario;
+                                    do{
+                                        limpar_tela();
+                                        printf("Usuario de nome %s selecionado!", usuarios[index].nome);
+                                        printf("Informe o que deseja altera");
+                                        printf("Login: digite 1");
+                                        printf("Senha: digite 2");
+                                        printf("Acesso: digite 3");
+                                        printf("Nome: digite 4");
+                                        printf("Sobrenome: digite 5");
+                                        printf("Endereço: digite 6");
+                                        printf("Data de Nascimento: digite 7");
+                                        printf("Telefone: digite 8");
+                                        printf("Salario: digite 9");
+                                        printf("Voltar: digite 10");
+                                        scanf("%d", &escolhaAttUsuario);
+                                        switch(escolhaAttUsuario){
+                                        case 1:
+                                            printf("Informe o login:\n");
+                                            scanf("%s", usuarios[index].login);
+                                            printf("Login atualizado com sucesso!\n");
+                                            Sleep(1000);
+                                            break;
+                                        case 2:
+                                            printf("Informe o senha:\n");
+                                            scanf("%s", usuarios[index].senha);
+                                            printf("Senha atualizado com sucesso!\n");
+                                            Sleep(1000);
+                                            break;
+                                        case 3:
+                                            printf("Informe o acesso:\n");
+                                            scanf("%d", &usuarios[index].acesso);
+                                            printf("Acesso atualizado com sucesso!\n");
+                                            Sleep(1000);
+                                            break;
+                                        case 4:
+                                            printf("Informe o nome:\n");
+                                            scanf("%s", usuarios[index].nome);
+                                            printf("Nome atualizado com sucesso!\n");
+                                            Sleep(1000);
+                                            break;
+                                        case 5:
+                                            printf("Informe o Sobrenome:\n");
+                                            scanf("%s", usuarios[index].sobrenome);
+                                            printf("Sobrenome atualizado com sucesso!\n");
+                                            Sleep(1000);
+                                            break;
+                                        case 6:
+                                            printf("Informe o endereço:\n");
+                                            scanf("%s", usuarios[index].endereco);
+                                            printf("Endereço atualizado com sucesso!\n");
+                                            Sleep(1000);
+                                            break;
+                                        case 7:
+                                            printf("Informe a data de nascimento:\n");
+                                            scanf("%s", usuarios[index].dataDeNascimento);
+                                            printf("Data de nascimento atualizado com sucesso!\n");
+                                            Sleep(1000);
+                                            break;
+                                        case 8:
+                                            printf("Informe o telefone:\n");
+                                            scanf("%s", usuarios[index].telefone);
+                                            printf("Telefone atualizado com sucesso!\n");
+                                            Sleep(1000);
+                                            break;
+                                        case 9:
+                                            printf("Informe a renda do cliente:\n");
+                                            scanf("%f", &usuarios[index].salario);
+                                            printf("Renda atualizado com sucesso!\n");
+                                            Sleep(1000);
+                                            break;
+                                        case 10:
+                                            printf("Retornando ao menu de usuario!\n");
+                                            Sleep(1000);
+                                            break;
+                                        default:
+                                            printf("\n --- Entre com um valor vÃ¡lido! ---\n");
+                                            Sleep(1000);
+                                            break;
                                         }
-                                      }
+                                    }while(escolhaAttUsuario != 10);
+                                    index = 0;
+                                }
                                 break;
                             default:
                                 break;
@@ -546,6 +566,8 @@ int main()
                               printf("Estruta para as placas");
                               printf("Cabeamento");
                               printf("conectores");
+                              printf("Deseja concluir a compra? Digite 1 para confirmar e 0 para retornar.");
+
                               break;
                             case 2:
                               printf("Emitir um relatorio\n");
