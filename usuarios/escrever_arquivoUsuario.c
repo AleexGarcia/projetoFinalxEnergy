@@ -5,7 +5,7 @@ void escreverArquivoUsuario(Usuario usuarios[])
 	FILE * arq;
 
 	// abre o arquivo para escrita,destruindo os dados e escrevendo dnovo atualizado
-	arq = fopen("/usuarios/usuarios.bin", "w+b");
+	arq = fopen("usuarios.bin", "w+b");
 
 	if(arq != NULL)
 	{

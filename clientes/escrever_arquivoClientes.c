@@ -5,7 +5,7 @@ void escreverArquivoCliente(Cliente clientes[])
 	FILE * arq;
 
 	// abre o arquivo para escrita,destruindo os dados e escrevendo dnovo atualizado
-	arq = fopen("/clientes/clientes.bin", "w+b");
+	arq = fopen("clientes.bin", "w+b");
 
 	if(arq != NULL)
 	{

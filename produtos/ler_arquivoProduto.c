@@ -1,7 +1,7 @@
 int ler_arquivoProduto(Produto produtos[100])
 {
 	// abre o arquivo para leitura
-	FILE * arq = fopen("/produtos/produtos.bin", "rb");
+	FILE * arq = fopen("produtos.bin", "rb");
 
 	if(arq != NULL)
 	{
@@ -25,7 +25,7 @@ int ler_arquivoProduto(Produto produtos[100])
 	}
 	else
 	{
-		printf("\nErro ao abrir o arquivo para leitura!\n");
-		exit(1); // aborta o programa
+		printf("Erro ao abrir o arquivo usuarios.bin para leitura!\n");
+		printf("Ou é o primeiro acesso e o arquivo não foi criado!\n");
 	}
 }

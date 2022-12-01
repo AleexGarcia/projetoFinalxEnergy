@@ -1,7 +1,7 @@
 int ler_arquivoUsuario(Usuario usuarios[100])
 {
 	// abre o arquivo para leitura
-	FILE * arq = fopen("/usuarios/usuarios.bin", "rb");
+	FILE * arq = fopen("usuarios.bin", "rb");
 
 	if(arq != NULL)
 	{
@@ -25,7 +25,24 @@ int ler_arquivoUsuario(Usuario usuarios[100])
 	}
 	else
 	{
-		printf("\nErro ao abrir o arquivo para leitura!\n");
-		exit(1); // aborta o programa
+		printf("Erro ao abrir o arquivo usuarios.bin para leitura!\n");
+		printf("Ou é o primeiro acesso e o arquivo não foi criado!\n");
+
+		strcpy(usuarios[0].login, "admin");
+    strcpy(usuarios[0].senha, "12345");
+    strcpy(usuarios[0].nome, "admin");
+    strcpy(usuarios[0].sobrenome, "admin");
+    strcpy(usuarios[0].telefone, "99999999999");
+    usuarios[0].id = 1;
+    usuarios[0].acesso = 1;
+
+    strcpy(usuarios[1].login, "funcionario");
+    strcpy(usuarios[1].senha, "12345");
+    strcpy(usuarios[1].telefone, "99999999999");
+    strcpy(usuarios[1].nome, "funcionario");
+    strcpy(usuarios[1].sobrenome, "funcionario");
+    usuarios[1].acesso = 0;
+    usuarios[1].id = 2;
+
 	}
 }

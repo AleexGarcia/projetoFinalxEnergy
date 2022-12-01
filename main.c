@@ -16,8 +16,8 @@
 #include "clientes/get_cliente.c"
 #include "clientes/set_cliente.c"
 #include "clientes/update_cliente.c"
-#include "clientes/ler_arquivoCliente.c"
-#include "clientes/escrever_arquivoCliente.c"
+#include "clientes/ler_arquivoClientes.c"
+#include "clientes/escrever_arquivoClientes.c"
 #include "usuarios/find_user.c"
 #include "usuarios/get_user.c"
 #include "usuarios/set_user.c"
@@ -42,7 +42,7 @@ int main()
 {
     setlocale(LC_ALL, "Portuguese_Brazil");
     // Registro do numero de clientes, usuarios e produtos cadastrados.
-    int quantidadeUser = 2, quantidadeProdutos = 0, quantidadeClientes = 0;
+    int quantidadeUser = 0, quantidadeProdutos = 0, quantidadeClientes = 0;
     // variaveis auxiliares de dados recebidos pelo usuario
     char loginRecebido[25], senhaRecebida[25];
     int idUsarioRecebido, idDoCliente, idProdutoRecebido;
@@ -58,24 +58,7 @@ int main()
 
     quantidadeClientes = ler_arquivoCliente(clientes);
     quantidadeProdutos = ler_arquivoProduto(produtos);
-    //ler_arquivoUsuario(usuarios);
-
-    // definindo os usuarios
-    strcpy(usuarios[0].login, "admin");
-    strcpy(usuarios[0].senha, "12345");
-    strcpy(usuarios[0].nome, "admin");
-    strcpy(usuarios[0].sobrenome, "admin");
-    strcpy(usuarios[0].telefone, "99999999999");
-    usuarios[0].id = 1;
-    usuarios[0].acesso = 1;
-
-    strcpy(usuarios[1].login, "funcionario");
-    strcpy(usuarios[1].senha, "12345");
-    strcpy(usuarios[1].telefone, "99999999999");
-    strcpy(usuarios[1].nome, "funcionario");
-    strcpy(usuarios[1].sobrenome, "funcionario");
-    usuarios[1].acesso = 0;
-    usuarios[1].id = 2;
+    quantidadeUser = ler_arquivoUsuario(usuarios);
 
     do
     {
@@ -167,13 +150,9 @@ int main()
                             switch (menuProduto)
                             {
                             case 1:
-                                // abrindo um txt para guardar os dados
-                                fp = fopen("produtos.txt", "a+");
-                                setProduto(&produtos[quantidadeProdutos],fp,quantidadeProdutos);
+                                setProduto(&produtos[quantidadeProdutos],quantidadeProdutos);
                                 escreverArquivoProduto(produtos);
                                 quantidadeProdutos++;
-                                // fechando o arquivo
-                                fclose(fp);
                                 break;
                             case 2:
                                 getProduto(produtos,quantidadeProdutos);

@@ -5,7 +5,7 @@ void escreverArquivoProduto(Produto produtos[])
 	FILE * arq;
 
 	// abre o arquivo para escrita,destruindo os dados e escrevendo dnovo atualizado
-	arq = fopen("/produtos/produtos.bin", "w+b");
+	arq = fopen("produtos.bin", "w+b");
 
 	if(arq != NULL)
 	{
