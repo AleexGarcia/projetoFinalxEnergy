@@ -27,6 +27,7 @@ typedef struct
 } Usuario;
 typedef struct
 {
+    int id;
     char nome[25];
     char sobrenome[25];
     char endereco[100];

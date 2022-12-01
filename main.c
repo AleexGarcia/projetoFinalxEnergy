@@ -20,6 +20,10 @@
 #include "usuarios/get_user.c"
 #include "usuarios/set_user.c"
 #include "usuarios/update_user.c"
+#include "produtos/find_produto.c"
+#include "produtos/get_produto.c"
+#include "produtos/set_produto.c"
+#include "produtos/update_produto.c"
 
 
 
@@ -35,8 +39,8 @@ int main()
     // Registro do numero de clientes, usuarios e produtos cadastrados.
     int quantidadeUser = 2, quantidadeProdutos = 0, quantidadeClientes = 0;
     // variaveis auxiliares de dados recebidos pelo usuario
-    char loginRecebido[25], senhaRecebida[25], nomeProdutoRecebido[25];
-    int idUsarioRecebido, idDoCliente;
+    char loginRecebido[25], senhaRecebida[25];
+    int idUsarioRecebido, idDoCliente, idProdutoRecebido;
     // variaveis para controle de menus e autenticacao de usuario
     int menuInicial, menuPrincipal, menuUser, menuProduto, menuVendas, autenticado = 0, acesso;
     // array de armazenamento de usuarios, clientes e produtos
@@ -133,7 +137,7 @@ int main()
                             switch (menuUser)
                             {
                             case 1:
-                                setCliente(&clientes[quantidadeClientes])
+                                setCliente(&clientes[quantidadeClientes], quantidadeClientes);
                                 quantidadeClientes++;
                                 break;
                             case 2:
@@ -150,12 +154,10 @@ int main()
                                 }
                                 break;
                             case 3:
-                                //adicionaUsuario
-                                setUser(&usuarios[quantidadeUser]);
+                                setUser(&usuarios[quantidadeUser],quantidadeClientes, usuarios);
                                 quantidadeUser++;
                                 break;
                             case 4:
-                                //updateUsuario
                                 getUser(usuarios,quantidadeUser);
                                 printf("Digite o id referente ao usuario que deseja atualizar ou 0 para retornar:\n ");
                                 scanf("%d", &idUsarioRecebido);
@@ -184,111 +186,22 @@ int main()
                             case 1:
                                 // abrindo um txt para guardar os dados
                                 fp = fopen("produtos.txt", "a+");
-                                printf("Informe o nome do produto:\n");
-                                scanf("%s", produtos[quantidadeProdutos].nome);
-                                // gravando o dado obtido no arquivo
-                                fprintf(fp, "%s\n", produtos[quantidadeProdutos].nome);
-                                fflush(stdin);
-                                printf("Informe o fornecedor:\n");
-                                scanf("%s", produtos[quantidadeProdutos].fornecedor);
-                                fprintf(fp, "%s\n", produtos[quantidadeProdutos].fornecedor);
-                                fflush(stdin);
-                                printf("Informe a marca do produto:\n");
-                                scanf("%s", produtos[quantidadeProdutos].marca);
-                                fprintf(fp, "%s\n", produtos[quantidadeProdutos].marca);
-                                fflush(stdin);
-                                printf("Informe o preço de compra:\n");
-                                scanf("%f", &produtos[quantidadeProdutos].precoDeCompra);
-                                fprintf(fp, "%f\n", produtos[quantidadeProdutos].precoDeCompra);
-                                fflush(stdin);
-                                printf("Informe o preço de venda:\n");
-                                scanf("%f", &produtos[quantidadeProdutos].precoDeVenda);
-                                fprintf(fp, "%f\n", produtos[quantidadeProdutos].precoDeVenda);
-                                fflush(stdin);
-                                printf("Informe o quantidade comprada:\n");
-                                scanf("%d", &produtos[quantidadeProdutos].quantidadeEmEstoque);
-                                fprintf(fp, "%d\n", produtos[quantidadeProdutos].quantidadeEmEstoque);
-                                fflush(stdin);
-                                produtos[quantidadeProdutos].id = quantidadeProdutos;
+                                setProduto(&produtos[quantidadeProdutos],fp,quantidadeProdutos);
                                 quantidadeProdutos++;
                                 // fechando o arquivo
                                 fclose(fp);
                                 break;
                             case 2:
-                                printf("Digite o nome do produto: ");
-                                scanf("%s", nomeProdutoRecebido);
-                                for (int i = 0; i < quantidadeProdutos; i++)
-                                {
-                                    if (!strcmp(nomeProdutoRecebido, produtos[i].nome))
-                                    {
-
-                                        int escolhaAttProduto;
-                                        do
-                                        {
-                                            limpar_tela();
-                                            printf("Informe o que deseja altera");
-                                            printf("Nome: digite 1");
-                                            printf("Fornecedor: digite 2");
-                                            printf("Marca: digite 3");
-                                            printf("Preço de compra: digite 4");
-                                            printf("Preço de venda: digite 5");
-                                            printf("Quantidade em estoque: digite 6");
-                                            printf("Voltar: digite 7");
-                                            scanf("%d", &escolhaAttProduto);
-                                            switch (escolhaAttProduto)
-                                            {
-                                            case 1:
-                                                printf("Informe o nome:\n");
-                                                scanf("%s", produtos[i].nome);
-                                                printf("Nome atualizado com sucesso!\n");
-                                                Sleep(1000);
-                                                break;
-                                            case 2:
-                                                printf("Informe o Fornecedor:\n");
-                                                scanf("%s", produtos[i].fornecedor);
-                                                printf("Fornecedor atualizado com sucesso!\n");
-                                                Sleep(1000);
-                                                break;
-                                            case 3:
-                                                printf("Informe a Marca:\n");
-                                                scanf("%s", produtos[i].marca);
-                                                printf("Marca atualizado com sucesso!\n");
-                                                Sleep(1000);
-                                                break;
-                                            case 4:
-                                                printf("Informe o preço de Compra:\n");
-                                                scanf("%f", &produtos[i].precoDeCompra);
-                                                printf("Preco de compra atualizado com sucesso!\n");
-                                                Sleep(1000);
-                                                break;
-                                            case 5:
-                                                printf("Informe o preço de venda:\n");
-                                                scanf("%f", &produtos[i].precoDeVenda);
-                                                printf("Preço de venda atualizado com sucesso!\n");
-                                                Sleep(1000);
-                                                break;
-                                            case 6:
-                                                printf("Informe a quantidade em estoque:\n");
-                                                scanf("%d", &produtos[i].quantidadeEmEstoque);
-                                                printf("Quantidade em estoque atualizado com sucesso!\n");
-                                                Sleep(1000);
-                                                break;
-                                            case 7:
-                                                printf("Retornando ao menu de produto!\n");
-                                                Sleep(1000);
-                                                break;
-                                            default:
-                                                printf("\n --- Entre com um valor vÃ¡lido! ---\n");
-                                                Sleep(1000);
-                                                break;
-                                            }
-                                        } while (escolhaAttProduto != 7);
+                                getProduto(produtos,quantidadeProdutos);
+                                printf("Digite o id do produto que deseja atualizar ou digite 0 para voltar\n: ");
+                                scanf("%d", &idProdutoRecebido);
+                                if(idProdutoRecebido != 0){
+                                    int index = findProduto(produtos,quantidadeProdutos,idProdutoRecebido);
+                                    if(index != -1){
+                                        updateProduto(&produtos[index]);
                                     }
-                                    else
-                                    {
-                                        printf("Produto não encontrado!\n");
-                                        Sleep(1000);
-                                    }
+                                }else{
+                                    printf("Id inválido!\n");
                                 }
                                 break;
                             case 3:

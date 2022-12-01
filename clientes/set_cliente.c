@@ -1,4 +1,4 @@
-void setCliente(Cliente *clientes)
+void setCliente(Cliente *clientes, int quantidadeClientes)
 {
   printf("Informe o nome:\n");
   scanf("%s", clientes->nome);
@@ -14,4 +14,5 @@ void setCliente(Cliente *clientes)
   fflush(stdin);
   printf("Informe o renda:\n");
   scanf("%f", &clientes->renda);
+  clientes->id = quantidadeClientes;
 }

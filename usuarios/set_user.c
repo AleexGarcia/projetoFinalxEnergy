@@ -1,9 +1,13 @@
-
-void setUser(Usuario *user)
+#include "find_login.c"
+void setUser(Usuario *user, int quantidadeUser, Usuario usuarios[100])
 {
-    printf("Informe o login:\n");
-    scanf("%s", user->login);
-    fflush(stdin);
+    char loginAux[25];
+    do{
+        printf("Informe o login:\n");
+        scanf("%s", loginAux);
+        fflush(stdin);
+    } while(findLogin(usuarios,quantidadeUser,loginAux));
+    strcpy(user->login, loginAux);
     printf("Informe a senha:\n");
     scanf("%s", user->senha);
     fflush(stdin);
@@ -28,4 +32,5 @@ void setUser(Usuario *user)
     printf("Informe o salario:\n");
     scanf("%f", &user->salario);
     fflush(stdin);
+    user->id = quantidadeUser;
 }
