@@ -34,3 +34,5 @@ typedef struct
     char telefone[11];
     float renda;
 } Cliente;
+
+

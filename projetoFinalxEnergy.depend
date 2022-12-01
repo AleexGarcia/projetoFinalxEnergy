@@ -1,19 +1,25 @@
 # depslib dependency file v1.0
-1669868272 source:c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\main.c
+1669902300 source:c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<locale.h>
 	<Windows.h>
 	<math.h>
+	"limpaTela.c"
+	"remove_quebraLinha.c"
 	"interface/interface.c"
 	"menus/menuPrincipal.c"
 	"menus/menuUsuario.c"
 	"menus/menuProduto.c"
 	"menus/menuVendas.c"
-	"usuarios/usuario.c"
+	"menus/menuAtualizacaoUsuario.c"
+	"usuarios/find_user.c"
+	"usuarios/get_user.c"
+	"usuarios/set_user.c"
+	"usuarios/update_user.c"
 
-1669864717 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\interface\interface.c
+1669902277 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\interface\interface.c
 
 1669865120 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\menus\menuprincipal.c
 
@@ -24,4 +30,50 @@
 1669866660 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\menus\menuvendas.c
 
 1669868249 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\usuarios\usuario.c
+
+1669901550 source:c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\limpatela.c
+
+1669901549 source:c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\menus\menuatualizacaousuario.c
+
+1669865120 source:c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\menus\menuprincipal.c
+
+1669866374 source:c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\menus\menuproduto.c
+
+1669866255 source:c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\menus\menuusuario.c
+
+1669866660 source:c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\menus\menuvendas.c
+
+1669901550 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\limpatela.c
+
+1669900926 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\remove_quebralinha.c
+	<string.h>
+
+1669901549 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\menus\menuatualizacaousuario.c
+
+1669902079 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\usuarios\find_user.c
+
+1669900970 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\usuarios\get_user.c
+	"../interface/interface.c"
+
+1669902080 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\usuarios\set_user.c
+
+1669902080 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\usuarios\update_user.c
+
+1669864717 source:c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\interface\interface.c
+
+1669900926 source:c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\remove_quebralinha.c
+	<string.h>
+
+1669900970 source:c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\usuarios\get_user.c
+	"../interface/interface.c"
+
+1669901656 source:c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\usuarios\find_user.c
+	"../interface/interface.c"
+
+1669901080 source:c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\usuarios\set_user.c
+	"../interface/interface.c"
+	<stdio.h>
+
+1669901678 source:c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\usuarios\update_user.c
+	"../interface/interface.c"
 

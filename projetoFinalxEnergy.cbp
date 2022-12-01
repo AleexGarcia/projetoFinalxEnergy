@@ -31,8 +31,61 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="interface/interface.c">
+			<Option compilerVar="CC" />
+			<Option compile="0" />
+		</Unit>
+		<Unit filename="limpaTela.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="limpatela.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="menus/menuAtualizacaoUsuario.c">
+			<Option compilerVar="CC" />
+			<Option compile="0" />
+		</Unit>
+		<Unit filename="menus/menuPrincipal.c">
+			<Option compilerVar="CC" />
+			<Option compile="0" />
+		</Unit>
+		<Unit filename="menus/menuProduto.c">
+			<Option compilerVar="CC" />
+			<Option compile="0" />
+		</Unit>
+		<Unit filename="menus/menuUsuario.c">
+			<Option compilerVar="CC" />
+			<Option compile="0" />
+		</Unit>
+		<Unit filename="menus/menuVendas.c">
+			<Option compilerVar="CC" />
+			<Option compile="0" />
+		</Unit>
+		<Unit filename="menus/menuatualizacaousuario.c">
+			<Option compilerVar="CC" />
+			<Option compile="0" />
+		</Unit>
+		<Unit filename="remove_quebraLinha.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="usuarios/find_user.c">
+			<Option compilerVar="CC" />
+			<Option compile="0" />
+		</Unit>
+		<Unit filename="usuarios/get_user.c">
+			<Option compilerVar="CC" />
+			<Option compile="0" />
+		</Unit>
+		<Unit filename="usuarios/set_user.c">
+			<Option compilerVar="CC" />
+			<Option compile="0" />
+		</Unit>
+		<Unit filename="usuarios/update_user.c">
+			<Option compilerVar="CC" />
+			<Option compile="0" />
 		</Unit>
 		<Extensions>
 			<lib_finder disable_auto="1" />

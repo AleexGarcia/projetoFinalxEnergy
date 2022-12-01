@@ -1,3 +1,4 @@
+
 void limpar_tela()
 {
 #ifdef _WIN32

@@ -1,15 +1,5 @@
-int findIndex(Usuario usuarios[100], int quantidadeUsuarios, int id)
-{
-    for (int i = 0; i < quantidadeUsuarios; i++)
-    {
-        if (usuarios[i].id == id)
-        {
-            return i;
-        }
-    }
-    return 0;
-}
-void setUsuario(Usuario *user)
+
+void setUser(Usuario *user)
 {
     printf("Informe o login:\n");
     scanf("%s", user->login);
@@ -39,11 +29,3 @@ void setUsuario(Usuario *user)
     scanf("%f", &user->salario);
     fflush(stdin);
 }
-void getUsuarios( Usuario usuarios[100], int quantidadeUsuarios){
-    for (int i = 0; i < quantidadeUsuarios; i++)
-    {
-        printf("id: %d | nome: %s | sobrenome: %s | telefone: %s \n", usuarios[i].id, usuarios[i].nome, usuarios[i].sobrenome, usuarios[i].telefone);
-    }
-}
-
-
