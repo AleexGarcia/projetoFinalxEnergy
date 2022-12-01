@@ -16,15 +16,20 @@
 #include "clientes/get_cliente.c"
 #include "clientes/set_cliente.c"
 #include "clientes/update_cliente.c"
+#include "clientes/ler_arquivoCliente.c"
+#include "clientes/escrever_arquivoCliente.c"
 #include "usuarios/find_user.c"
 #include "usuarios/get_user.c"
 #include "usuarios/set_user.c"
 #include "usuarios/update_user.c"
+#include "usuarios/ler_arquivoUsuario.c"
+#include "usuarios/escrever_arquivoUsuario.c"
 #include "produtos/find_produto.c"
 #include "produtos/get_produto.c"
 #include "produtos/set_produto.c"
 #include "produtos/update_produto.c"
-
+#include "produtos/ler_arquivoProduto.c"
+#include "produtos/escrever_arquivoProduto.c"
 
 
 int calculaNumPlacasSol(float consumoMedioAnual, float potenciaPlaca)
@@ -44,43 +49,17 @@ int main()
     // variaveis para controle de menus e autenticacao de usuario
     int menuInicial, menuPrincipal, menuUser, menuProduto, menuVendas, autenticado = 0, acesso;
     // array de armazenamento de usuarios, clientes e produtos
+
     Usuario usuarios[100];
     Produto produtos[100];
     Cliente clientes[100];
 
-    FILE *fp;
-    // preenchendo o array de produtos utilizando um arquivo externo
-    fp = fopen("produtos.txt", "r");
-    if (fp != NULL)
-    {
-        while (!feof(fp))
-        {
-            printf("%d", quantidadeProdutos);
-            fgets(produtos[quantidadeProdutos].nome, 99, fp);
-            fflush(stdin);
-            removaQuebraLinha(produtos[quantidadeProdutos].nome);
-            fgets(produtos[quantidadeProdutos].fornecedor, 99, fp);
-            fflush(stdin);
-            removaQuebraLinha(produtos[quantidadeProdutos].fornecedor);
-            fgets(produtos[quantidadeProdutos].marca, 99, fp);
-            fflush(stdin);
-            removaQuebraLinha(produtos[quantidadeProdutos].marca);
-            char aux[25];
-            fgets(aux, 25, fp);
-            fflush(stdin);
-            produtos[quantidadeProdutos].precoDeCompra = atoi(aux);
-            fgets(aux, 25, fp);
-            fflush(stdin);
-            produtos[quantidadeProdutos].precoDeVenda = atoi(aux);
-            fgets(aux, 25, fp);
-            fflush(stdin);
-            produtos[quantidadeProdutos].quantidadeEmEstoque = atoi(aux);
-            produtos[quantidadeProdutos].id = quantidadeProdutos;
-            quantidadeProdutos++;
-        }
-        quantidadeProdutos -= 1;
-    }
-    fclose(fp);
+    //lendo arquivos binarios de arrays de structs e guardando a quantidade de valores lidos
+
+    quantidadeClientes = ler_arquivoCliente(clientes);
+    quantidadeProdutos = ler_arquivoProduto(produtos);
+    //ler_arquivoUsuario(usuarios);
+
     // definindo os usuarios
     strcpy(usuarios[0].login, "admin");
     strcpy(usuarios[0].senha, "12345");
@@ -139,6 +118,7 @@ int main()
                             case 1:
                                 setCliente(&clientes[quantidadeClientes], quantidadeClientes);
                                 quantidadeClientes++;
+                                escreverArquivoCliente(clientes);
                                 break;
                             case 2:
                                 getCliente(clientes, quantidadeClientes);
@@ -148,6 +128,7 @@ int main()
                                     int index = findCliente(clientes,quantidadeClientes,idDoCliente);
                                     if(index != - 1){
                                         updateCliente(&clientes[index]);
+                                        escreverArquivoCliente(clientes);
                                     }
                                 }else{
                                     printf("Id inválido!\n");
@@ -156,6 +137,7 @@ int main()
                             case 3:
                                 setUser(&usuarios[quantidadeUser],quantidadeClientes, usuarios);
                                 quantidadeUser++;
+                                escreverArquivoUsuario(usuarios);
                                 break;
                             case 4:
                                 getUser(usuarios,quantidadeUser);
@@ -165,6 +147,7 @@ int main()
                                     int index = findUser(usuarios, quantidadeUser,idUsarioRecebido);
                                     if(index != -1){
                                         updateUser(&usuarios[index]);
+                                        escreverArquivoUsuario(usuarios);
                                     }
                                 }else{
                                     printf("Id inválido!\n");
@@ -187,6 +170,7 @@ int main()
                                 // abrindo um txt para guardar os dados
                                 fp = fopen("produtos.txt", "a+");
                                 setProduto(&produtos[quantidadeProdutos],fp,quantidadeProdutos);
+                                escreverArquivoProduto(produtos);
                                 quantidadeProdutos++;
                                 // fechando o arquivo
                                 fclose(fp);
@@ -199,6 +183,7 @@ int main()
                                     int index = findProduto(produtos,quantidadeProdutos,idProdutoRecebido);
                                     if(index != -1){
                                         updateProduto(&produtos[index]);
+                                        escreverArquivoProduto(produtos);
                                     }
                                 }else{
                                     printf("Id inválido!\n");
