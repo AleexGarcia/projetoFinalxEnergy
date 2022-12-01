@@ -1,9 +1,27 @@
 # depslib dependency file v1.0
-1669389142 source:c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\main.c
+1669868272 source:c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<locale.h>
 	<Windows.h>
 	<math.h>
+	"interface/interface.c"
+	"menus/menuPrincipal.c"
+	"menus/menuUsuario.c"
+	"menus/menuProduto.c"
+	"menus/menuVendas.c"
+	"usuarios/usuario.c"
+
+1669864717 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\interface\interface.c
+
+1669865120 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\menus\menuprincipal.c
+
+1669866255 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\menus\menuusuario.c
+
+1669866374 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\menus\menuproduto.c
+
+1669866660 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\menus\menuvendas.c
+
+1669868249 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\usuarios\usuario.c
 
