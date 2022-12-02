@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1669929095 source:c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\main.c
+1669947903 source:c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -109,15 +109,15 @@
 
 1669907344 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\produtos\update_produto.c
 
-1669929626 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\clientes\ler_arquivoclientes.c
+1669947919 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\clientes\ler_arquivoclientes.c
 
 1669928712 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\clientes\escrever_arquivoclientes.c
 
-1669929575 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\usuarios\ler_arquivousuario.c
+1669947376 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\usuarios\ler_arquivousuario.c
 
 1669928511 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\usuarios\escrever_arquivousuario.c
 
-1669929628 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\produtos\ler_arquivoproduto.c
+1669945898 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\produtos\ler_arquivoproduto.c
 
-1669928710 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\produtos\escrever_arquivoproduto.c
+1669947973 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\produtos\escrever_arquivoproduto.c
 

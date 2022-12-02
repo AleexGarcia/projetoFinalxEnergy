@@ -17,6 +17,5 @@ void escreverArquivoProduto(Produto produtos[])
 	else
 	{
 		printf("\nErro ao abrir o arquivo para leitura!\n");
-		exit(1); // aborta o programa
 	}
 }

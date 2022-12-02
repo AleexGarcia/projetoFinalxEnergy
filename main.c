@@ -32,10 +32,15 @@
 #include "produtos/escrever_arquivoProduto.c"
 
 
-int calculaNumPlacasSol(float consumoMedioAnual, float potenciaPlaca)
+int * calculaNumPlacasSol(float consumoMedioAnual)
 {
+    int potenciaDasPlacas[3] = {340,405,500};
+    static int numeroPlacas[3];
+    for(int i = 0; i < 3; i++){
+        numeroPlacas[i] = ceil((consumoMedioAnual*1000) / (potenciaDasPlacas[i] * 5 * 0.8 * 30));
+    }
 
-    return ceil(consumoMedioAnual / (potenciaPlaca * 5 * 0.8 * 30));
+    return numeroPlacas;
 }
 
 int main()
@@ -180,8 +185,8 @@ int main()
                     case 3:
                         do
                         {
-                            float consumoEnergeticoMedio, potenciaDePico;
-                            int potenciaDaPlaca, numeroDePlacas;
+                            float consumoEnergeticoMedio, potenciasDePico[3];
+                            int* numeroDePlacas;
                             exibeMenuVenda(acesso,&menuVendas);
                             switch (menuVendas)
                             {
@@ -189,14 +194,15 @@ int main()
                                 printf("Informe o consumo medio do ultimo ano em KWh:\n");
                                 scanf("%f", &consumoEnergeticoMedio);
                                 fflush(stdin);
-                                printf("Informe o numero da potencia da placa:\n");
-                                scanf("%d", &potenciaDaPlaca);
-                                fflush(stdin);
-                                numeroDePlacas = calculaNumPlacasSol(consumoEnergeticoMedio, potenciaDaPlaca);
-                                potenciaDePico = numeroDePlacas * potenciaDaPlaca;
-                                printf("Numero de Placas de %d WP: %d\n", potenciaDaPlaca, numeroDePlacas);
-                                printf("Potencia minima do inversor em KW: %f\n", potenciaDePico);
-                                printf("Estruta para as placas");
+                                numeroDePlacas = calculaNumPlacasSol(consumoEnergeticoMedio);
+                                for(int i = 0; i < 3; i++){
+                                    int potencias[3] = {340,405,500};
+                                    potenciasDePico[i] = numeroDePlacas[i]*potencias[i];
+                                    printf("Numero de Placas de WP: %d\n", numeroDePlacas[i]);
+                                    printf("Potencia minima do inversor em KW: %f\n", potenciasDePico[i]);
+                                }
+
+                                printf("Estrutura para as placas");
                                 printf("Cabeamento");
                                 printf("conectores");
                                 printf("Deseja concluir a compra? Digite 1 para confirmar e 0 para retornar.");

@@ -43,6 +43,6 @@ int ler_arquivoUsuario(Usuario usuarios[100])
     strcpy(usuarios[1].sobrenome, "funcionario");
     usuarios[1].acesso = 0;
     usuarios[1].id = 2;
-
+    return 2;
 	}
 }

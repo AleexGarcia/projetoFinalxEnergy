@@ -27,5 +27,6 @@ int ler_arquivoCliente(Cliente clientes[100])
 	{
 		printf("Erro ao abrir o arquivo usuarios.bin para leitura!\n");
 		printf("Ou é o primeiro acesso e o arquivo não foi criado!\n");
+		return 0;
 	}
 }
