@@ -65,6 +65,9 @@ int main()
     do
     {
         printf("MENU INICIAL \n Digite 1 p/ login. \n Digite 2 p/ Sair do Sistema.\n");
+        printf("%d\n", quantidadeClientes);
+        printf("%d\n", quantidadeProdutos);
+        printf("%d\n", quantidadeUser);
         scanf("%d", &menuInicial);
         switch (menuInicial)
         {
@@ -103,7 +106,7 @@ int main()
                             case 1:
                                 setCliente(&clientes[quantidadeClientes], quantidadeClientes);
                                 quantidadeClientes++;
-                                escreverArquivoCliente(clientes);
+                                escreverArquivoCliente(clientes, quantidadeClientes);
                                 break;
                             case 2:
                                 getCliente(clientes, quantidadeClientes);
@@ -113,7 +116,7 @@ int main()
                                     int index = findCliente(clientes,quantidadeClientes,idDoCliente);
                                     if(index != - 1){
                                         updateCliente(&clientes[index]);
-                                        escreverArquivoCliente(clientes);
+                                        escreverArquivoCliente(clientes, quantidadeClientes);
                                     }
                                 }else{
                                     printf("Id inválido!\n");
@@ -122,7 +125,7 @@ int main()
                             case 3:
                                 setUser(&usuarios[quantidadeUser],quantidadeClientes, usuarios);
                                 quantidadeUser++;
-                                escreverArquivoUsuario(usuarios);
+                                escreverArquivoUsuario(usuarios, quantidadeUser);
                                 break;
                             case 4:
                                 getUser(usuarios,quantidadeUser);
@@ -132,7 +135,7 @@ int main()
                                     int index = findUser(usuarios, quantidadeUser,idUsarioRecebido);
                                     if(index != -1){
                                         updateUser(&usuarios[index]);
-                                        escreverArquivoUsuario(usuarios);
+                                        escreverArquivoUsuario(usuarios,quantidadeUser);
                                     }
                                 }else{
                                     printf("Id inválido!\n");
@@ -153,8 +156,8 @@ int main()
                             {
                             case 1:
                                 setProduto(&produtos[quantidadeProdutos],quantidadeProdutos);
-                                escreverArquivoProduto(produtos);
                                 quantidadeProdutos++;
+                                escreverArquivoProduto(produtos, quantidadeProdutos);
                                 break;
                             case 2:
                                 getProduto(produtos,quantidadeProdutos);
@@ -164,7 +167,7 @@ int main()
                                     int index = findProduto(produtos,quantidadeProdutos,idProdutoRecebido);
                                     if(index != -1){
                                         updateProduto(&produtos[index]);
-                                        escreverArquivoProduto(produtos);
+                                        escreverArquivoProduto(produtos, quantidadeProdutos);
                                     }
                                 }else{
                                     printf("Id inválido!\n");

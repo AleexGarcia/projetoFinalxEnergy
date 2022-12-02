@@ -1,7 +1,7 @@
-void escreverArquivoProduto(Produto produtos[])
+void escreverArquivoProduto(Produto produtos[], int quantidadeDeProdutos)
 {
 	int i;
-	int len_vet = sizeof(produtos) - 1; // tamanho do vetor
+	//int len_vet = sizeof(produtos) - 1; // tamanho do vetor
 	FILE * arq;
 
 	// abre o arquivo para escrita,destruindo os dados e escrevendo dnovo atualizado
@@ -9,7 +9,7 @@ void escreverArquivoProduto(Produto produtos[])
 
 	if(arq != NULL)
 	{
-		for(i = 0; i < len_vet; i++)
+		for(i = 0; i < quantidadeDeProdutos; i++)
 			// escreve cada elemento do vetor no arquivo
 			fwrite(&produtos[i], sizeof(Produto), 1, arq);
 		fclose(arq); // aborta o programa

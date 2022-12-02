@@ -1,4 +1,4 @@
-void escreverArquivoUsuario(Usuario usuarios[])
+void escreverArquivoUsuario(Usuario usuarios[], int quantidadeDeUsuarios)
 {
 	int i;
 	int len_vet = sizeof(usuarios) - 1; // tamanho do vetor
@@ -9,7 +9,7 @@ void escreverArquivoUsuario(Usuario usuarios[])
 
 	if(arq != NULL)
 	{
-		for(i = 0; i < len_vet; i++)
+		for(i = 0; i < quantidadeDeUsuarios; i++)
 			// escreve cada elemento do vetor no arquivo
 			fwrite(&usuarios[i], sizeof(Usuario), 1, arq);
 		fclose(arq); // aborta o programa
