@@ -32,5 +32,5 @@ void setUser(Usuario *user, int quantidadeUser, Usuario usuarios[100])
     printf("Informe o salario:\n");
     scanf("%f", &user->salario);
     fflush(stdin);
-    user->id = quantidadeUser;
+    user->id = quantidadeUser + 1;
 }

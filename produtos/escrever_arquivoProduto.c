@@ -11,7 +11,7 @@ void escreverArquivoProduto(Produto produtos[])
 	{
 		for(i = 0; i < len_vet; i++)
 			// escreve cada elemento do vetor no arquivo
-			fwrite(&produtos[i], sizeof(produtos), 1, arq);
+			fwrite(&produtos[i], sizeof(Produto), 1, arq);
 		fclose(arq); // aborta o programa
 	}
 	else

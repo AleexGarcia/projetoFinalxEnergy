@@ -54,13 +54,10 @@ int main()
     // variaveis para controle de menus e autenticacao de usuario
     int menuInicial, menuPrincipal, menuUser, menuProduto, menuVendas, autenticado = 0, acesso;
     // array de armazenamento de usuarios, clientes e produtos
-
     Usuario usuarios[100];
     Produto produtos[100];
     Cliente clientes[100];
-
     //lendo arquivos binarios de arrays de structs e guardando a quantidade de valores lidos
-
     quantidadeClientes = ler_arquivoCliente(clientes);
     quantidadeProdutos = ler_arquivoProduto(produtos);
     quantidadeUser = ler_arquivoUsuario(usuarios);
@@ -201,12 +198,10 @@ int main()
                                     printf("Numero de Placas de WP: %d\n", numeroDePlacas[i]);
                                     printf("Potencia minima do inversor em KW: %f\n", potenciasDePico[i]);
                                 }
-
                                 printf("Estrutura para as placas");
                                 printf("Cabeamento");
                                 printf("conectores");
                                 printf("Deseja concluir a compra? Digite 1 para confirmar e 0 para retornar.");
-
                                 break;
                             case 2:
                                 printf("Emitir um relatorio\n");

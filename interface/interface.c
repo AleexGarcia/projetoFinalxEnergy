@@ -5,6 +5,8 @@ typedef struct
     char nome[25];
     char fornecedor[25];
     char marca[25];
+    int tipo;
+    //0 - placaFotoVoltaica  1- inversor, 2- estrutura, 3- cabeamento, 4- conectores 5-disjuntor;
     int potencia;
     float precoDeCompra;
     float precoDeVenda;

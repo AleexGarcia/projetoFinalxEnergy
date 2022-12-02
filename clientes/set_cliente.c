@@ -14,5 +14,5 @@ void setCliente(Cliente *clientes, int quantidadeClientes)
   fflush(stdin);
   printf("Informe o renda:\n");
   scanf("%f", &clientes->renda);
-  clientes->id = quantidadeClientes;
+  clientes->id = quantidadeClientes + 1;
 }

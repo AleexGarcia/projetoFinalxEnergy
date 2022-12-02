@@ -4,14 +4,14 @@ void updateProduto(Produto *produtos)
   do
   {
     limpar_tela();
-    printf("Informe o que deseja altera");
-    printf("Nome: digite 1");
-    printf("Fornecedor: digite 2");
-    printf("Marca: digite 3");
-    printf("Preço de compra: digite 4");
-    printf("Preço de venda: digite 5");
-    printf("Quantidade em estoque: digite 6");
-    printf("Voltar: digite 7");
+    printf("Informe o que deseja altera\n");
+    printf("Nome: digite 1\n");
+    printf("Fornecedor: digite 2\n");
+    printf("Marca: digite 3\n");
+    printf("Preço de compra: digite 4\n");
+    printf("Preço de venda: digite 5\n");
+    printf("Quantidade em estoque: digite 6\n");
+    printf("Voltar: digite 7\n");
     scanf("%d", &escolhaAttProduto);
     switch (escolhaAttProduto)
     {

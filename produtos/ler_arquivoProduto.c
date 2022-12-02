@@ -25,7 +25,7 @@ int ler_arquivoProduto(Produto produtos[100])
 	}
 	else
 	{
-		printf("Erro ao abrir o arquivo usuarios.bin para leitura!\n");
+		printf("Erro ao abrir o arquivo produtos.bin para leitura!\n");
 		printf("Ou é o primeiro acesso e o arquivo não foi criado!\n");
 		return 0;
 	}

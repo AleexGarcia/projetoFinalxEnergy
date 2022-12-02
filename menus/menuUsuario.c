@@ -17,6 +17,8 @@
             else if (menu == 4)
             {
                 *menuUser = 6;
+            }else{
+                *menuUser = menu;
             }
         }
         else
@@ -25,6 +27,7 @@
             printf("Digite 4 para Atualizar cadastro de usuarios\n");
             printf("Digite 5 para Retornar ao MENU PRINCIPAL\n");
             scanf("%d", &menu);
+            *menuUser = menu;
         }
-        *menuUser = menu;
+
     }

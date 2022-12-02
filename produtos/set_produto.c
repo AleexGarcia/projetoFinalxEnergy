@@ -18,5 +18,16 @@ void setProduto(Produto *produtos, int quantidadeProdutos)
   printf("Informe o quantidade comprada:\n");
   scanf("%d", &produtos->quantidadeEmEstoque);
   fflush(stdin);
-  produtos->id = quantidadeProdutos;
+  printf("Informe o tipo do produto:\n");
+  printf("0 - Placa fotovoltaica, 1 - inversor, 2 - estrutura, 3 - cabeamento, 4 - conectores 5 - disjuntor\n");
+  scanf("%d", &produtos->tipo);
+  fflush(stdin);
+  if(produtos->tipo < 2 && produtos->tipo > -1){
+    printf("Informe a potencia se houver:\n");
+    scanf("%d", &produtos->potencia);
+    fflush(stdin);
+  }else{
+    produtos->potencia = 0;
+  }
+  produtos->id = quantidadeProdutos + 1;
 }
