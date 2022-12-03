@@ -31,7 +31,7 @@
 #include "produtos/ler_arquivoProduto.c"
 #include "produtos/escrever_arquivoProduto.c"
 #include "produtos/precoDoProduto.c"
-#include "vendas/findVendas.c"
+#include "vendas/escrever_arquivoVenda.c"
 #include "vendas/getVendas.c"
 #include "vendas/ler_arquivoVenda.c"
 #include "vendas/setVenda.c"
@@ -56,6 +56,8 @@ int main()
     quantidadeClientes = ler_arquivoCliente(clientes);
     quantidadeProdutos = ler_arquivoProduto(produtos);
     quantidadeUser = ler_arquivoUsuario(usuarios);
+    quantidadeVendas = ler_arquivoVenda(vendas);
+
     do
     {
         printf("MENU INICIAL \n Digite 1 p/ login. \n Digite 2 p/ Sair do Sistema.\n");
@@ -184,11 +186,12 @@ int main()
                                 resposta = setVenda(&vendas[quantidadeVendas],quantidadeVendas,produtos,quantidadeProdutos);
                                 if(resposta){
                                     quantidadeVendas++;
+                                    escreverArquivoVenda(vendas,quantidadeVendas);
                                 }
-
                                 break;
                             case 2:
-                                printf("Emitir um relatorio\n");
+                                printf("RELATORIOS DE VENDA\n");
+                                getVenda(vendas,quantidadeVendas);
                                 break;
                             case 3:
                                 printf("Voltando para o menu principal\n");

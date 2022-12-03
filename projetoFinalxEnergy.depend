@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1670094369 source:c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\main.c
+1670094837 source:c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -33,7 +33,7 @@
 	"produtos/ler_arquivoProduto.c"
 	"produtos/escrever_arquivoProduto.c"
 	"produtos/precoDoProduto.c"
-	"vendas/findVendas.c"
+	"vendas/escrever_arquivoVenda.c"
 	"vendas/getVendas.c"
 	"vendas/ler_arquivoVenda.c"
 	"vendas/setVenda.c"
@@ -108,7 +108,7 @@
 
 1669906791 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\produtos\find_produto.c
 
-1669906911 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\produtos\get_produto.c
+1670095314 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\produtos\get_produto.c
 
 1669951182 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\produtos\set_produto.c
 
@@ -128,16 +128,18 @@
 
 1670094369 source:c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\calculanumplacas.c
 
-1670090598 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\produtos\precodoproduto.c
+1670095783 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\produtos\precodoproduto.c
 
 1670092243 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\vendas\findvendas.c
 
 1670094058 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\vendas\getvendas.c
 
-1670092565 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\vendas\ler_arquivovenda.c
+1670094869 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\vendas\ler_arquivovenda.c
 
 1670094377 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\vendas\setvenda.c
 	"../calculaNumPlacas.c"
 
 1670094369 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\calculanumplacas.c
+
+1670092480 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\vendas\escrever_arquivovenda.c
 
