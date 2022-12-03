@@ -32,13 +32,11 @@
 #include "produtos/escrever_arquivoProduto.c"
 
 
-int * calculaNumPlacasSol(float consumoMedioAnual)
+int calculaNumPlacasSol(float consumoMedioAnual)
 {
-    int potenciaDasPlacas[3] = {340,405,500};
-    static int numeroPlacas[3];
-    for(int i = 0; i < 3; i++){
-        numeroPlacas[i] = ceil((consumoMedioAnual*1000) / (potenciaDasPlacas[i] * 5 * 0.8 * 30));
-    }
+    int potenciaDasPlacas = 340;
+    int numeroPlacas;
+    numeroPlacas = ceil((consumoMedioAnual*1000) / (potenciaDasPlacas * 5 * 0.8 * 30));
 
     return numeroPlacas;
 }
@@ -61,13 +59,9 @@ int main()
     quantidadeClientes = ler_arquivoCliente(clientes);
     quantidadeProdutos = ler_arquivoProduto(produtos);
     quantidadeUser = ler_arquivoUsuario(usuarios);
-
     do
     {
         printf("MENU INICIAL \n Digite 1 p/ login. \n Digite 2 p/ Sair do Sistema.\n");
-        printf("%d\n", quantidadeClientes);
-        printf("%d\n", quantidadeProdutos);
-        printf("%d\n", quantidadeUser);
         scanf("%d", &menuInicial);
         switch (menuInicial)
         {
@@ -185,8 +179,9 @@ int main()
                     case 3:
                         do
                         {
-                            float consumoEnergeticoMedio, potenciasDePico[3];
-                            int* numeroDePlacas;
+                            float consumoEnergeticoMedio, potenciasDePico;
+                            int numeroDePlacas;
+                            int numeroDeEstruturas, numEstruturas, numDisjusntores, numConectore;
                             exibeMenuVenda(acesso,&menuVendas);
                             switch (menuVendas)
                             {
@@ -195,16 +190,19 @@ int main()
                                 scanf("%f", &consumoEnergeticoMedio);
                                 fflush(stdin);
                                 numeroDePlacas = calculaNumPlacasSol(consumoEnergeticoMedio);
-                                for(int i = 0; i < 3; i++){
-                                    int potencias[3] = {340,405,500};
-                                    potenciasDePico[i] = numeroDePlacas[i]*potencias[i];
-                                    printf("Numero de Placas de WP: %d\n", numeroDePlacas[i]);
-                                    printf("Potencia minima do inversor em KW: %f\n", potenciasDePico[i]);
-                                }
-                                printf("Estrutura para as placas");
-                                printf("Cabeamento");
-                                printf("conectores");
+                                int potencias = 340;
+                                potenciasDePico = numeroDePlacas*potencias;
+                                printf("Numero de Placas de WP: %d\n", numeroDePlacas);
+                                printf("Potencia minima do inversor em KW: %f\n", potenciasDePico);
+                                printf("Estrutura para as placas", numeroDePlacas);
+                                printf("Cabeamento %f\n", (float) 2*(numeroDePlacas/numeroDePlacas));
+                                printf("Conectores %d\n", (int) 2*(numeroDePlacas) );
+                                printf("disjuntores %d\n", (int) 3*(numeroDePlacas/numeroDePlacas));
                                 printf("Deseja concluir a compra? Digite 1 para confirmar e 0 para retornar.");
+                                scanf("%d", &compra);
+                                if(compra == 1){
+
+                                }
                                 break;
                             case 2:
                                 printf("Emitir um relatorio\n");

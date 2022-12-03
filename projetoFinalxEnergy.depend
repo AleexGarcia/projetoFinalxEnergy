@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1670001811 source:c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\main.c
+1670028407 source:c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -33,7 +33,7 @@
 	"produtos/ler_arquivoProduto.c"
 	"produtos/escrever_arquivoProduto.c"
 
-1669951132 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\interface\interface.c
+1670026425 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\interface\interface.c
 
 1669865120 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\menus\menuprincipal.c
 

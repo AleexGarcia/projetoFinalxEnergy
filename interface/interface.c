@@ -38,4 +38,17 @@ typedef struct
     float renda;
 } Cliente;
 
+typedef struct
+{
+    int quantidadeDePlacas;
+    int quantidadeDeInversores;
+    int quantidadeDeConectores;
+    int quantidadeDeDisjuntores;
+    int quantidadeDeCabeamento;
+    float precoVenda;
+
+
+
+} Relatorio;
+
 
