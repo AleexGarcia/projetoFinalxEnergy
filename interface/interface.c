@@ -13,6 +13,8 @@ typedef struct
     int quantidadeEmEstoque;
 } Produto;
 
+
+
 typedef struct
 {
     char nome[25];
@@ -41,13 +43,19 @@ typedef struct
 typedef struct
 {
     int quantidadeDePlacas;
+    float precoPlacas;
     int quantidadeDeInversores;
+    float precoInversor;
     int quantidadeDeConectores;
+    float precoConector;
     int quantidadeDeDisjuntores;
+    float precoDisjuntor;
     int quantidadeDeCabeamento;
-    float precoVenda;
-
-
+    float precoCabeamento;
+    int quantidadeDeEstrutura;
+    float precoEstrutura;
+    float precoTotal;
+    int id;
 
 } Relatorio;
 

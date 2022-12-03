@@ -30,31 +30,28 @@
 #include "produtos/update_produto.c"
 #include "produtos/ler_arquivoProduto.c"
 #include "produtos/escrever_arquivoProduto.c"
+#include "produtos/precoDoProduto.c"
+#include "vendas/findVendas.c"
+#include "vendas/getVendas.c"
+#include "vendas/ler_arquivoVenda.c"
+#include "vendas/setVenda.c"
 
-
-int calculaNumPlacasSol(float consumoMedioAnual)
-{
-    int potenciaDasPlacas = 340;
-    int numeroPlacas;
-    numeroPlacas = ceil((consumoMedioAnual*1000) / (potenciaDasPlacas * 5 * 0.8 * 30));
-
-    return numeroPlacas;
-}
 
 int main()
 {
     setlocale(LC_ALL, "Portuguese_Brazil");
     // Registro do numero de clientes, usuarios e produtos cadastrados.
-    int quantidadeUser = 0, quantidadeProdutos = 0, quantidadeClientes = 0;
+    int quantidadeUser = 0, quantidadeProdutos = 0, quantidadeClientes = 0, quantidadeVendas = 0;
     // variaveis auxiliares de dados recebidos pelo usuario
     char loginRecebido[25], senhaRecebida[25];
-    int idUsarioRecebido, idDoCliente, idProdutoRecebido;
+    int idUsarioRecebido, idDoCliente, idProdutoRecebido, resposta;
     // variaveis para controle de menus e autenticacao de usuario
     int menuInicial, menuPrincipal, menuUser, menuProduto, menuVendas, autenticado = 0, acesso;
     // array de armazenamento de usuarios, clientes e produtos
     Usuario usuarios[100];
     Produto produtos[100];
     Cliente clientes[100];
+    Relatorio vendas[100];
     //lendo arquivos binarios de arrays de structs e guardando a quantidade de valores lidos
     quantidadeClientes = ler_arquivoCliente(clientes);
     quantidadeProdutos = ler_arquivoProduto(produtos);
@@ -117,7 +114,7 @@ int main()
                                 }
                                 break;
                             case 3:
-                                setUser(&usuarios[quantidadeUser],quantidadeClientes, usuarios);
+                                setUser(&usuarios[quantidadeUser],quantidadeUser, usuarios);
                                 quantidadeUser++;
                                 escreverArquivoUsuario(usuarios, quantidadeUser);
                                 break;
@@ -179,30 +176,16 @@ int main()
                     case 3:
                         do
                         {
-                            float consumoEnergeticoMedio, potenciasDePico;
-                            int numeroDePlacas;
-                            int numeroDeEstruturas, numEstruturas, numDisjusntores, numConectore;
+
                             exibeMenuVenda(acesso,&menuVendas);
                             switch (menuVendas)
                             {
                             case 1:
-                                printf("Informe o consumo medio do ultimo ano em KWh:\n");
-                                scanf("%f", &consumoEnergeticoMedio);
-                                fflush(stdin);
-                                numeroDePlacas = calculaNumPlacasSol(consumoEnergeticoMedio);
-                                int potencias = 340;
-                                potenciasDePico = numeroDePlacas*potencias;
-                                printf("Numero de Placas de WP: %d\n", numeroDePlacas);
-                                printf("Potencia minima do inversor em KW: %f\n", potenciasDePico);
-                                printf("Estrutura para as placas", numeroDePlacas);
-                                printf("Cabeamento %f\n", (float) 2*(numeroDePlacas/numeroDePlacas));
-                                printf("Conectores %d\n", (int) 2*(numeroDePlacas) );
-                                printf("disjuntores %d\n", (int) 3*(numeroDePlacas/numeroDePlacas));
-                                printf("Deseja concluir a compra? Digite 1 para confirmar e 0 para retornar.");
-                                scanf("%d", &compra);
-                                if(compra == 1){
-
+                                resposta = setVenda(&vendas[quantidadeVendas],quantidadeVendas,produtos,quantidadeProdutos);
+                                if(resposta){
+                                    quantidadeVendas++;
                                 }
+
                                 break;
                             case 2:
                                 printf("Emitir um relatorio\n");

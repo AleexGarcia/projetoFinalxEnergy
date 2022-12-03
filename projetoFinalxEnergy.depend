@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1670028407 source:c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\main.c
+1670094369 source:c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -32,8 +32,13 @@
 	"produtos/update_produto.c"
 	"produtos/ler_arquivoProduto.c"
 	"produtos/escrever_arquivoProduto.c"
+	"produtos/precoDoProduto.c"
+	"vendas/findVendas.c"
+	"vendas/getVendas.c"
+	"vendas/ler_arquivoVenda.c"
+	"vendas/setVenda.c"
 
-1670026425 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\interface\interface.c
+1670093771 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\interface\interface.c
 
 1669865120 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\menus\menuprincipal.c
 
@@ -66,7 +71,7 @@
 
 1669904299 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\usuarios\find_user.c
 
-1669902625 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\usuarios\get_user.c
+1670092739 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\usuarios\get_user.c
 
 1669951395 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\usuarios\set_user.c
 	"find_login.c"
@@ -120,4 +125,19 @@
 1669950716 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\produtos\ler_arquivoproduto.c
 
 1670001717 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\produtos\escrever_arquivoproduto.c
+
+1670094369 source:c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\calculanumplacas.c
+
+1670090598 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\produtos\precodoproduto.c
+
+1670092243 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\vendas\findvendas.c
+
+1670094058 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\vendas\getvendas.c
+
+1670092565 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\vendas\ler_arquivovenda.c
+
+1670094377 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\vendas\setvenda.c
+	"../calculaNumPlacas.c"
+
+1670094369 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\calculanumplacas.c
 
