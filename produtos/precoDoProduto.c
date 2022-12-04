@@ -6,7 +6,7 @@ float precoDoProduto(int tipo, int quantidadeRequisitada, Produto produtos[], in
       return produtos[i].precoDeVenda * quantidadeRequisitada;
     }
   }
-
+  return 0;
 }
 
 //findEstoque(tipo,quantidade,arrayDeProdutos);

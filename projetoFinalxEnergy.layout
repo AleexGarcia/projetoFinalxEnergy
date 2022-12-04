@@ -2,9 +2,19 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
-	<File name="clientes\escrever_arquivoClientes.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="produtos\escrever_arquivoProduto.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="512" topLine="0" />
+			<Cursor1 position="302" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="produtos\ler_arquivoProduto.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="522" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="produtos\set_produto.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="644" topLine="11" />
 		</Cursor>
 	</File>
 	<File name="usuarios\find_user.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -12,29 +22,14 @@
 			<Cursor1 position="200" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="usuarios\set_user.c" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="usuarios\escrever_arquivoUsuario.c" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="51" topLine="0" />
+			<Cursor1 position="87" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="clientes\update_cliente.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="produtos\find_produto.c" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1591" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="usuarios\update_user.c" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="126" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="limpaTela.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="100" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="vendas\getVendas.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1328" topLine="0" />
+			<Cursor1 position="200" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="clientes\get_cliente.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -47,54 +42,14 @@
 			<Cursor1 position="641" topLine="5" />
 		</Cursor>
 	</File>
-	<File name="vendas\escrever_arquivoVenda.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="vendas\setVenda.c" open="1" top="1" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="25" topLine="0" />
+			<Cursor1 position="616" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="remove_quebraLinha.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="limpaTela.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="164" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="menus\menuAtualizacaoUsuario.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="498" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="usuarios\get_user.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="153" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="produtos\precoDoProduto.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="663" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="clientes\set_cliente.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="486" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="produtos\update_produto.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="294" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="produtos\get_produto.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="315" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="produtos\set_produto.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="644" topLine="11" />
-		</Cursor>
-	</File>
-	<File name="vendas\ler_arquivoVenda.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="141" topLine="0" />
+			<Cursor1 position="100" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="clientes\find_cliente.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -102,14 +57,24 @@
 			<Cursor1 position="183" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="vendas\setVenda.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="usuarios\get_user.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="761" topLine="6" />
+			<Cursor1 position="153" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="produtos\find_produto.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="produtos\get_produto.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="202" topLine="0" />
+			<Cursor1 position="315" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="usuarios\set_user.c" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="51" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="menus\menuAtualizacaoUsuario.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="498" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="clientes\ler_arquivoClientes.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -117,14 +82,44 @@
 			<Cursor1 position="355" topLine="5" />
 		</Cursor>
 	</File>
-	<File name="produtos\escrever_arquivoProduto.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="clientes\escrever_arquivoClientes.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="302" topLine="0" />
+			<Cursor1 position="512" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="produtos\ler_arquivoProduto.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="usuarios\find_login.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="522" topLine="0" />
+			<Cursor1 position="251" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="remove_quebraLinha.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="164" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="clientes\set_cliente.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="486" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="main.c" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="1" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="8952" topLine="174" />
+		</Cursor>
+	</File>
+	<File name="produtos\precoDoProduto.c" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="566" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="produtos\update_produto.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="294" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="vendas\getVendas.c" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1338" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="interface\interface.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -132,24 +127,14 @@
 			<Cursor1 position="962" topLine="35" />
 		</Cursor>
 	</File>
-	<File name="calculaNumPlacas.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="usuarios\update_user.c" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="230" topLine="0" />
+			<Cursor1 position="126" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="usuarios\escrever_arquivoUsuario.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="clientes\update_cliente.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="159" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="main.c" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="1" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2318" topLine="45" />
-		</Cursor>
-	</File>
-	<File name="usuarios\find_login.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="251" topLine="0" />
+			<Cursor1 position="1591" topLine="0" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

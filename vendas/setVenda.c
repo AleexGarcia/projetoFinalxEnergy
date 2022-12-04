@@ -1,18 +1,16 @@
 #include "../calculaNumPlacas.c"
+#include "reduzirEstoque.c"
 
 int setVenda(Relatorio *vendas, int quantidadeDeVendas, Produto produtos[], int quantidadeProdutos)
 {
-    float consumoEnergeticoMedio, potenciasDePico;
-    int numeroDePlacas, compra;
-    int numEstruturas, numDisjuntores, numConectores, numCabeamento, numInversor;
+    float consumoEnergeticoMedio;
+    int numeroDePlacas, compra, numEstruturas, numDisjuntores, numConectores, numCabeamento, numInversor;
 
     printf("Informe o consumo medio do ultimo ano em KWh:\n");
     scanf("%f", &consumoEnergeticoMedio);
     fflush(stdin);
-    numeroDePlacas = calculaNumPlacasSol(consumoEnergeticoMedio);
-    int potencias = 340;
 
-    potenciasDePico = numeroDePlacas * potencias;
+    numeroDePlacas = calculaNumPlacasSol(consumoEnergeticoMedio);
     numInversor = numeroDePlacas;
     numEstruturas = numeroDePlacas;
     numCabeamento = 2 * (numeroDePlacas / numeroDePlacas);
@@ -52,6 +50,13 @@ int setVenda(Relatorio *vendas, int quantidadeDeVendas, Produto produtos[], int 
         scanf("%d", &compra);
         if(compra == 1){
 
+          reduzirEstoque(0,numeroDePlacas,produtos,quantidadeProdutos);
+          reduzirEstoque(1,numInversor,produtos,quantidadeProdutos);
+          reduzirEstoque(2,numEstruturas,produtos,quantidadeProdutos);
+          reduzirEstoque(3,numCabeamento,produtos,quantidadeProdutos);
+          reduzirEstoque(4,numConectores,produtos,quantidadeProdutos);
+          reduzirEstoque(5,numDisjuntores,produtos,quantidadeProdutos);
+
           vendas->precoCabeamento = precoDoCabeamento;
           vendas->precoConector = precoDosConectores;
           vendas->precoDisjuntor = precoDosDisjuntores;
@@ -59,7 +64,6 @@ int setVenda(Relatorio *vendas, int quantidadeDeVendas, Produto produtos[], int 
           vendas->precoInversor = precoDoInversor;
           vendas->precoPlacas = precoDasPlacas;
           vendas->precoTotal = precoTotal;
-
           vendas->quantidadeDeCabeamento = numCabeamento;
           vendas->quantidadeDeConectores = numConectores;
           vendas->quantidadeDeDisjuntores = numDisjuntores;
@@ -67,7 +71,9 @@ int setVenda(Relatorio *vendas, int quantidadeDeVendas, Produto produtos[], int 
           vendas->quantidadeDeInversores = numInversor;
           vendas->quantidadeDePlacas = numeroDePlacas;
           vendas->id = quantidadeDeVendas + 1;
+
           return 1;
+
         }
 
     }

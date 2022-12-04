@@ -120,6 +120,11 @@
 			<Option compile="0" />
 			<Option link="0" />
 		</Unit>
+		<Unit filename="produtos/precoDoProduto.c">
+			<Option compilerVar="CC" />
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
 		<Unit filename="produtos/set_produto.c">
 			<Option compilerVar="CC" />
 			<Option compile="0" />
@@ -167,6 +172,31 @@
 			<Option link="0" />
 		</Unit>
 		<Unit filename="usuarios/update_user.c">
+			<Option compilerVar="CC" />
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="vendas/escrever_arquivoVenda.c">
+			<Option compilerVar="CC" />
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="vendas/findVendas.c">
+			<Option compilerVar="CC" />
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="vendas/getVendas.c">
+			<Option compilerVar="CC" />
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="vendas/ler_arquivoVenda.c">
+			<Option compilerVar="CC" />
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="vendas/setVenda.c">
 			<Option compilerVar="CC" />
 			<Option compile="0" />
 			<Option link="0" />

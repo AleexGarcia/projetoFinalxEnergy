@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1670094837 source:c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\main.c
+1670180575 source:c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -120,7 +120,7 @@
 
 1669947376 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\usuarios\ler_arquivousuario.c
 
-1670001734 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\usuarios\escrever_arquivousuario.c
+1670183083 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\usuarios\escrever_arquivousuario.c
 
 1669950716 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\produtos\ler_arquivoproduto.c
 
@@ -128,7 +128,7 @@
 
 1670094369 source:c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\calculanumplacas.c
 
-1670180257 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\produtos\precodoproduto.c
+1670183222 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\produtos\precodoproduto.c
 
 1670092243 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\vendas\findvendas.c
 
@@ -136,7 +136,7 @@
 
 1670094869 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\vendas\ler_arquivovenda.c
 
-1670094377 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\vendas\setvenda.c
+1670180516 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\vendas\setvenda.c
 	"../calculaNumPlacas.c"
 
 1670094369 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\calculanumplacas.c
