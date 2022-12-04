@@ -35,15 +35,15 @@ int setVenda(Relatorio *vendas, int quantidadeDeVendas, Produto produtos[], int 
         printf("\n---------------------------------\n");
         printf("Numero de placas: %d | preço %f\n", numeroDePlacas, precoDasPlacas);
         printf("---------------------------------\n");
-        printf("Numero de Inversor: %d | preço %f\n", numInversor, precoDasPlacas);
+        printf("Numero de Inversor: %d | preço %f\n", numInversor, precoDoInversor);
         printf("---------------------------------\n");
-        printf("Numero de estruturas: %d | preço %f\n", numEstruturas, precoDasPlacas);
+        printf("Numero de estruturas: %d | preço %f\n", numEstruturas, precoDaEstrutura);
         printf("---------------------------------\n");
-        printf("Numero de cabeamento: %d | preço %f\n", numCabeamento, precoDasPlacas);
+        printf("Numero de cabeamento: %d | preço %f\n", numCabeamento, precoDoCabeamento);
         printf("---------------------------------\n");
-        printf("Numero de conectores: %d | preço %f\n", numConectores, precoDasPlacas);
+        printf("Numero de conectores: %d | preço %f\n", numConectores, precoDosConectores);
         printf("---------------------------------\n");
-        printf("Numero de disjuntores: %d | preço %f\n", numDisjuntores, precoDasPlacas);
+        printf("Numero de disjuntores: %d | preço %f\n", numDisjuntores, precoDosDisjuntores);
         printf("---------------------------------\n");
         printf("Preço total: %f\n", precoTotal);
         printf("---------------------------------\n");
@@ -53,12 +53,12 @@ int setVenda(Relatorio *vendas, int quantidadeDeVendas, Produto produtos[], int 
         if(compra == 1){
 
           vendas->precoCabeamento = precoDoCabeamento;
-          vendas->precoConector = precoDoCabeamento;
-          vendas->precoDisjuntor = precoDoCabeamento;
-          vendas->precoEstrutura = precoDoCabeamento;
-          vendas->precoInversor = precoDoCabeamento;
-          vendas->precoPlacas = precoDoCabeamento;
-          vendas->precoTotal = precoDoCabeamento;
+          vendas->precoConector = precoDosConectores;
+          vendas->precoDisjuntor = precoDosDisjuntores;
+          vendas->precoEstrutura = precoDaEstrutura;
+          vendas->precoInversor = precoDoInversor;
+          vendas->precoPlacas = precoDasPlacas;
+          vendas->precoTotal = precoTotal;
 
           vendas->quantidadeDeCabeamento = numCabeamento;
           vendas->quantidadeDeConectores = numConectores;

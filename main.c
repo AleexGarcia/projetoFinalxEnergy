@@ -192,6 +192,9 @@ int main()
                             case 2:
                                 printf("RELATORIOS DE VENDA\n");
                                 getVenda(vendas,quantidadeVendas);
+                                int d;
+                                printf("Aperte enter para voltar!\n");
+                                scanf("%d", &d);
                                 break;
                             case 3:
                                 printf("Voltando para o menu principal\n");
