@@ -30,7 +30,6 @@
 #include "produtos/update_produto.c"
 #include "produtos/ler_arquivoProduto.c"
 #include "produtos/escrever_arquivoProduto.c"
-#include "produtos/precoDoProduto.c"
 #include "vendas/escrever_arquivoVenda.c"
 #include "vendas/getVendas.c"
 #include "vendas/ler_arquivoVenda.c"
@@ -205,11 +204,11 @@ int main()
                                     }else if(d == 3){
                                         getLucro(vendas,quantidadeVendas);
                                     }else if(d == 4){
-                                        printf("Saindo!\n")
+                                        printf("Saindo!\n");
                                     }else{
                                         printf("Valor inválido!\n");
                                     }
-                                }while(d != 4;
+                                }while(d != 4);
                                 break;
                             case 3:
                                 printf("Voltando para o menu principal\n");

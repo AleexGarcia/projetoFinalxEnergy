@@ -58,7 +58,7 @@ int setVenda(Relatorio *vendas, int quantidadeDeVendas, Produto produtos[], int 
         printf("A instalação do sistema se dá apos a analise em até 7 dias uteis apos a aprovação.\n");
         printf("Há mais um prazo de 7 dias para a vistoria pela concenssionaria!\n");
         printf("E mais 34 dias para que ela troque o relogio medidor do imóvel!\n");
-        printf("Totalizando 63 dias desde o inico do processo.\n")
+        printf("Totalizando 63 dias desde o inico do processo.\n");
         printf("---------------------------------\n");
 
         printf("Deseja concluir a compra? Digite 1 para confirmar e 0 para retornar.\n");
