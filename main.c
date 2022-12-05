@@ -139,7 +139,7 @@ int main()
                                     printf("Id inválido!\n");
                                 }
                                 break;
-                            case 7:
+                            case 6:
                                 getUser(usuarios,quantidadeUser,0);
                                 printf("Digite o id referente ao usuario que deseja deletar ou 0 para retornar:\n ");
                                 scanf("%d", &idUsarioRecebido);
@@ -153,17 +153,19 @@ int main()
                                     printf("Id inválido!\n");
                                 }
                                 break;
-                            case 8:
+                            case 7:
                                 getUser(usuarios,quantidadeUser,1);
                                 break;
-                            case 9:
+                            case 8:
                                 printf("Retornando ao menu anterior!\n");
                                 Sleep(2000);
                                 break;
                             default:
+                                printf("Valor inválido!\n");
+                                Sleep(2000);
                                 break;
                             }
-                        } while (menuUser != 9);
+                        } while (menuUser != 8);
                         break;
                     case 2:
 

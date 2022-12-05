@@ -12,7 +12,7 @@ void exibeMenuVenda(int acesso, int *menuVendas)
     {
       menu = 3;
     }
-    else if (menu == 3)
+    else if (menu > 2)
     {
       menu = 4;
     }

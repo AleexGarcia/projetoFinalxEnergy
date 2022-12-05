@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1670259171 source:c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\main.c
+1670261462 source:c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -26,6 +26,7 @@
 	"usuarios/update_user.c"
 	"usuarios/ler_arquivoUsuario.c"
 	"usuarios/escrever_arquivoUsuario.c"
+	"usuarios/deletar_usuario.c"
 	"produtos/find_produto.c"
 	"produtos/get_produto.c"
 	"produtos/set_produto.c"
@@ -40,13 +41,13 @@
 	"vendas/getFaturamento.c"
 	"vendas/getLucro.c"
 
-1670249177 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\interface\interface.c
+1670261160 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\interface\interface.c
 
 1669865120 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\menus\menuprincipal.c
 
 1670250672 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\menus\menuusuario.c
 
-1670259340 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\menus\menuproduto.c
+1670259588 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\menus\menuproduto.c
 
 1670250608 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\menus\menuvendas.c
 
@@ -69,16 +70,16 @@
 1669900926 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\remove_quebralinha.c
 	<string.h>
 
-1669902965 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\menus\menuatualizacaousuario.c
+1670261903 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\menus\menuatualizacaousuario.c
 
 1669904299 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\usuarios\find_user.c
 
-1670092739 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\usuarios\get_user.c
+1670261373 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\usuarios\get_user.c
 
-1669951395 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\usuarios\set_user.c
+1670262327 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\usuarios\set_user.c
 	"find_login.c"
 
-1669904620 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\usuarios\update_user.c
+1670262479 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\usuarios\update_user.c
 
 1669864717 source:c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\interface\interface.c
 
@@ -100,17 +101,17 @@
 
 1669904307 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\clientes\find_cliente.c
 
-1669903863 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\clientes\get_cliente.c
+1670261320 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\clientes\get_cliente.c
 
-1669951371 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\clientes\set_cliente.c
+1670261517 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\clientes\set_cliente.c
 
-1669904521 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\clientes\update_cliente.c
+1670261777 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\clientes\update_cliente.c
 
 1669908335 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\usuarios\find_login.c
 
 1669906791 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\produtos\find_produto.c
 
-1670095314 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\produtos\get_produto.c
+1670261351 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\produtos\get_produto.c
 
 1670259116 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\produtos\set_produto.c
 	"find_produtoTipo.c"
@@ -162,4 +163,6 @@
 1670257705 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\produtos\find_produtotipo.c
 
 1670259267 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\produtos\delete_produto.c
+
+1670260817 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\usuarios\deletar_usuario.c
 
