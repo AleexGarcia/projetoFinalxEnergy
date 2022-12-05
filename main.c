@@ -24,12 +24,14 @@
 #include "usuarios/update_user.c"
 #include "usuarios/ler_arquivoUsuario.c"
 #include "usuarios/escrever_arquivoUsuario.c"
+#include "usuarios/deletar_usuario.c"
 #include "produtos/find_produto.c"
 #include "produtos/get_produto.c"
 #include "produtos/set_produto.c"
 #include "produtos/update_produto.c"
 #include "produtos/ler_arquivoProduto.c"
 #include "produtos/escrever_arquivoProduto.c"
+#include "produtos/delete_produto.c"
 #include "vendas/escrever_arquivoVenda.c"
 #include "vendas/getVendas.c"
 #include "vendas/ler_arquivoVenda.c"
@@ -102,7 +104,7 @@ int main()
                                 escreverArquivoCliente(clientes, quantidadeClientes);
                                 break;
                             case 2:
-                                getCliente(clientes, quantidadeClientes);
+                                getCliente(clientes, quantidadeClientes,0);
                                 printf("Digite a id do cliente ou 0 para voltar! \n");
                                 scanf("%d", &idDoCliente);
                                 if(idDoCliente != 0){
@@ -116,12 +118,15 @@ int main()
                                 }
                                 break;
                             case 3:
+                                getCliente(clientes,quantidadeClientes,1);
+                                break;
+                            case 4:
                                 setUser(&usuarios[quantidadeUser],quantidadeUser, usuarios);
                                 quantidadeUser++;
                                 escreverArquivoUsuario(usuarios, quantidadeUser);
                                 break;
-                            case 4:
-                                getUser(usuarios,quantidadeUser);
+                            case 5:
+                                getUser(usuarios,quantidadeUser,0);
                                 printf("Digite o id referente ao usuario que deseja atualizar ou 0 para retornar:\n ");
                                 scanf("%d", &idUsarioRecebido);
                                 if(idUsarioRecebido != 0){
@@ -133,6 +138,23 @@ int main()
                                 }else{
                                     printf("Id inválido!\n");
                                 }
+                                break;
+                            case 7:
+                                getUser(usuarios,quantidadeUser,0);
+                                printf("Digite o id referente ao usuario que deseja deletar ou 0 para retornar:\n ");
+                                scanf("%d", &idUsarioRecebido);
+                                if(idUsarioRecebido != 0){
+                                    int index = findUser(usuarios, quantidadeUser,idUsarioRecebido);
+                                    if(index != -1){
+                                        deleteUsuario(index, usuarios, &quantidadeUser);
+                                        escreverArquivoUsuario(usuarios,quantidadeUser);
+                                    }
+                                }else{
+                                    printf("Id inválido!\n");
+                                }
+                                break;
+                            case 6:
+                                getUser(usuarios,quantidadeUser,1);
                                 break;
                             default:
                                 break;
@@ -148,12 +170,12 @@ int main()
                             switch (menuProduto)
                             {
                             case 1:
-                                setProduto(&produtos[quantidadeProdutos],quantidadeProdutos);
+                                setProduto(&produtos[quantidadeProdutos],quantidadeProdutos,produtos);
                                 quantidadeProdutos++;
                                 escreverArquivoProduto(produtos, quantidadeProdutos);
                                 break;
                             case 2:
-                                getProduto(produtos,quantidadeProdutos);
+                                getProduto(produtos,quantidadeProdutos,0);
                                 printf("Digite o id do produto que deseja atualizar ou digite 0 para voltar\n: ");
                                 scanf("%d", &idProdutoRecebido);
                                 if(idProdutoRecebido != 0){
@@ -162,23 +184,43 @@ int main()
                                         updateProduto(&produtos[index]);
                                         escreverArquivoProduto(produtos, quantidadeProdutos);
                                     }
+                                }else if(idProdutoRecebido == 0){
+                                    printf("Retornando!");
                                 }else{
                                     printf("Id inválido!\n");
                                 }
                                 break;
                             case 3:
+                                getProduto(produtos,quantidadeProdutos,0);
+                                printf("Digite o id do produto que deseja deletar ou digite 0 para voltar\n: ");
+                                scanf("%d", &idProdutoRecebido);
+                                if(idProdutoRecebido != 0){
+                                    int index = findProduto(produtos,quantidadeProdutos,idProdutoRecebido);
+                                    if(index != -1){
+                                        deleteProduto(index , produtos, &quantidadeProdutos);
+                                        escreverArquivoProduto(produtos, quantidadeProdutos);
+                                    }
+                                }else if(idProdutoRecebido == 0){
+                                    printf("Retornando!");
+                                }else{
+                                    printf("Id inválido!\n");
+                                }
+                                break;
+                            case 4:
+                                getProduto(produtos,quantidadeProdutos,1);
+                                break;
+                            case 5:
                                 printf("Retornar ao menu principal\n");
                                 break;
                             default:
                                 printf("Informe um valor válido\n");
                                 break;
                             }
-                        } while (menuProduto != 3);
+                        } while (menuProduto != 5);
                         break;
                     case 3:
                         do
                         {
-
                             exibeMenuVenda(acesso,&menuVendas);
                             switch (menuVendas)
                             {
@@ -187,24 +229,39 @@ int main()
                                 if(resposta){
                                     quantidadeVendas++;
                                     escreverArquivoVenda(vendas,quantidadeVendas);
+                                    limpar_tela();
+                                    printf("Venda realizada com sucesso!\n");
+                                    Sleep(2000);
                                 }
                                 break;
                             case 2:
                                 printf("RELATORIOS DE VENDA\n");
                                 int d;
                                 do{
+                                    limpar_tela();
                                     printf("Listar todas as vendas: digite 1\n");
                                     printf("Faturamento até o momento: digite 2\n");
                                     printf("Projeção de receita: digite 3\n");
+                                    printf("Para retornar: digite 4\n");
                                     scanf("%d", &d);
                                     if(d == 1){
                                         getVenda(vendas,quantidadeVendas);
+                                        int pausa;
+                                        printf("\n Precione enter para retornar \n");
+                                        scanf("%d",&pausa);
                                     }else if(d == 2){
                                         getFaturamento(vendas,quantidadeVendas);
+                                        int pausa;
+                                        printf("\n Precione enter para retornar \n");
+                                        scanf("%d",&pausa);
                                     }else if(d == 3){
                                         getLucro(vendas,quantidadeVendas);
+                                        int pausa;
+                                        printf("\n Precione enter para retornar \n");
+                                        scanf("%d",&pausa);
                                     }else if(d == 4){
                                         printf("Saindo!\n");
+                                        Sleep(2000);
                                     }else{
                                         printf("Valor inválido!\n");
                                     }

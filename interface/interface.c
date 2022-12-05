@@ -26,6 +26,7 @@ typedef struct
     char login[20];
     char senha[20];
     int acesso;
+    int cpf;
     int id;
 
 } Usuario;
@@ -38,6 +39,7 @@ typedef struct
     char dataDeNascimento[10];
     char telefone[11];
     float renda;
+    int cpf;
 } Cliente;
 
 typedef struct
