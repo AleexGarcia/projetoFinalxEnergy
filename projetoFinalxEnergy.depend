@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1670261462 source:c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\main.c
+1670264218 source:c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -45,11 +45,11 @@
 
 1669865120 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\menus\menuprincipal.c
 
-1670250672 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\menus\menuusuario.c
+1670262821 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\menus\menuusuario.c
 
 1670259588 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\menus\menuproduto.c
 
-1670250608 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\menus\menuvendas.c
+1670262883 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\menus\menuvendas.c
 
 1669868249 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\usuarios\usuario.c
 
@@ -74,7 +74,7 @@
 
 1669904299 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\usuarios\find_user.c
 
-1670261373 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\usuarios\get_user.c
+1670263111 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\usuarios\get_user.c
 
 1670262327 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\usuarios\set_user.c
 	"find_login.c"
@@ -101,7 +101,7 @@
 
 1669904307 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\clientes\find_cliente.c
 
-1670261320 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\clientes\get_cliente.c
+1670263078 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\clientes\get_cliente.c
 
 1670261517 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\clientes\set_cliente.c
 
@@ -111,22 +111,22 @@
 
 1669906791 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\produtos\find_produto.c
 
-1670261351 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\produtos\get_produto.c
+1670263094 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\produtos\get_produto.c
 
 1670259116 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\produtos\set_produto.c
 	"find_produtoTipo.c"
 
 1669952411 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\produtos\update_produto.c
 
-1669991224 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\clientes\ler_arquivoclientes.c
+1670263560 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\clientes\ler_arquivoclientes.c
 
 1670001828 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\clientes\escrever_arquivoclientes.c
 
-1669947376 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\usuarios\ler_arquivousuario.c
+1670263632 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\usuarios\ler_arquivousuario.c
 
-1670183083 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\usuarios\escrever_arquivousuario.c
+1670263542 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\usuarios\escrever_arquivousuario.c
 
-1669950716 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\produtos\ler_arquivoproduto.c
+1670263571 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\produtos\ler_arquivoproduto.c
 
 1670001717 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\produtos\escrever_arquivoproduto.c
 
@@ -140,7 +140,7 @@
 
 1670094869 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\vendas\ler_arquivovenda.c
 
-1670254653 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\vendas\setvenda.c
+1670264651 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\vendas\setvenda.c
 	"../calculaNumPlacas.c"
 	"precoDoProduto.c"
 	"custoDoProduto.c"
@@ -152,7 +152,7 @@
 
 1670191369 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\vendas\reduzirestoque.c
 
-1670248069 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\vendas\precodoproduto.c
+1670264488 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\vendas\precodoproduto.c
 
 1670248081 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\vendas\custodoproduto.c
 

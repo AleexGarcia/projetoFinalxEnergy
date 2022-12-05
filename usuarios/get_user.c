@@ -19,7 +19,9 @@ void getUser( Usuario usuarios[100], int quantidadeUsuarios, int exibicaoTotal){
         }
 
       }
-    }
+    }else{
+      printf("Nenhum usuário cadastrado!\n");
+   }
 }
 
 

@@ -15,6 +15,8 @@ void getProduto(Produto produtos[100] , int quantidadeDeProdutos, int exibicaoTo
           printf("\nErro: ExibicaoTotal deve ser 1 ou 0, 1 para exibição Total\n");
         }
       }
+   }else{
+    printf("Nenhum produto cadastrado!\n");
    }
 
   }

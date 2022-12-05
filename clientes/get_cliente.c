@@ -15,6 +15,8 @@ void getCliente(Cliente clientes[100] , int quantidadeDeClientes, int exibicaoTo
         }
       }
 
+   }else{
+    printf("Nenhum cliente cadastrado!\n");
    }
 
 }

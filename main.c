@@ -46,7 +46,7 @@ int main()
     int quantidadeUser = 0, quantidadeProdutos = 0, quantidadeClientes = 0, quantidadeVendas = 0;
     // variaveis auxiliares de dados recebidos pelo usuario
     char loginRecebido[25], senhaRecebida[25];
-    int idUsarioRecebido, idDoCliente, idProdutoRecebido, resposta;
+    int idUsarioRecebido, idDoCliente, idProdutoRecebido, resposta, pausa;
     // variaveis para controle de menus e autenticacao de usuario
     int menuInicial, menuPrincipal, menuUser, menuProduto, menuVendas, autenticado = 0, acesso;
     // array de armazenamento de usuarios, clientes e produtos
@@ -58,11 +58,12 @@ int main()
     quantidadeClientes = ler_arquivoCliente(clientes);
     quantidadeProdutos = ler_arquivoProduto(produtos);
     quantidadeUser = ler_arquivoUsuario(usuarios);
+    escreverArquivoUsuario(usuarios, quantidadeUser);
     quantidadeVendas = ler_arquivoVenda(vendas);
 
     do
     {
-        printf("MENU INICIAL \n Digite 1 p/ login. \n Digite 2 p/ Sair do Sistema.\n");
+        printf("\nMENU INICIAL \n Digite 1 p/ login. \n Digite 2 p/ Sair do Sistema.\n");
         scanf("%d", &menuInicial);
         switch (menuInicial)
         {
@@ -113,12 +114,18 @@ int main()
                                         updateCliente(&clientes[index]);
                                         escreverArquivoCliente(clientes, quantidadeClientes);
                                     }
+                                }else if(idDoCliente == 0){
+                                    printf("Retornando!\n");
+                                    Sleep(1000);
                                 }else{
                                     printf("Id inválido!\n");
                                 }
                                 break;
                             case 3:
                                 getCliente(clientes,quantidadeClientes,1);
+                                printf("\n Digite 0 para retornar \n");
+                                scanf("%d",&pausa);
+                                fflush(stdin);
                                 break;
                             case 4:
                                 setUser(&usuarios[quantidadeUser],quantidadeUser, usuarios);
@@ -135,6 +142,9 @@ int main()
                                         updateUser(&usuarios[index]);
                                         escreverArquivoUsuario(usuarios,quantidadeUser);
                                     }
+                                }else if(idUsarioRecebido == 0){
+                                    printf("Retornando!\n");
+                                    Sleep(1000);
                                 }else{
                                     printf("Id inválido!\n");
                                 }
@@ -149,20 +159,26 @@ int main()
                                         deleteUsuario(index, usuarios, &quantidadeUser);
                                         escreverArquivoUsuario(usuarios,quantidadeUser);
                                     }
+                                }else if(idUsarioRecebido == 0){
+                                    printf("Retornando!\n");
+                                    Sleep(1000);
                                 }else{
                                     printf("Id inválido!\n");
                                 }
                                 break;
                             case 7:
                                 getUser(usuarios,quantidadeUser,1);
+                                printf("\n Digite 0 para retornar \n");
+                                scanf("%d",&pausa);
+                                fflush(stdin);
                                 break;
                             case 8:
                                 printf("Retornando ao menu anterior!\n");
-                                Sleep(2000);
+                                Sleep(1000);
                                 break;
                             default:
                                 printf("Valor inválido!\n");
-                                Sleep(2000);
+                                Sleep(1000);
                                 break;
                             }
                         } while (menuUser != 8);
@@ -235,9 +251,8 @@ int main()
                                 if(resposta){
                                     quantidadeVendas++;
                                     escreverArquivoVenda(vendas,quantidadeVendas);
-                                    limpar_tela();
                                     printf("Venda realizada com sucesso!\n");
-                                    Sleep(2000);
+                                    Sleep(1000);
                                 }
                                 break;
                             case 2:
@@ -252,22 +267,22 @@ int main()
                                     scanf("%d", &d);
                                     if(d == 1){
                                         getVenda(vendas,quantidadeVendas);
-                                        int pausa;
-                                        printf("\n Precione enter para retornar \n");
+                                        printf("\n Digite 0 para retornar \n");
                                         scanf("%d",&pausa);
+                                        fflush(stdin);
                                     }else if(d == 2){
                                         getFaturamento(vendas,quantidadeVendas);
-                                        int pausa;
-                                        printf("\n Precione enter para retornar \n");
+                                        printf("\n Digite 0 para retornar \n");
                                         scanf("%d",&pausa);
+                                        fflush(stdin);
                                     }else if(d == 3){
                                         getLucro(vendas,quantidadeVendas);
-                                        int pausa;
-                                        printf("\n Precione enter para retornar \n");
+                                        printf("\n Digite 0 para retornar \n");
                                         scanf("%d",&pausa);
+                                        fflush(stdin);
                                     }else if(d == 4){
                                         printf("Saindo!\n");
-                                        Sleep(2000);
+                                        Sleep(1000);
                                     }else{
                                         printf("Valor inválido!\n");
                                     }
@@ -296,7 +311,9 @@ int main()
             }
             else
             {
+                limpar_tela();
                 printf("\nLogin e/ou senha informados estão incorretos\n");
+                Sleep(1000);
                 break;
             }
 

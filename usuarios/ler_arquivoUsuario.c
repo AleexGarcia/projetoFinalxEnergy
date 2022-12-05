@@ -25,7 +25,7 @@ int ler_arquivoUsuario(Usuario usuarios[100])
 	}
 	else
 	{
-		printf("Erro ao abrir o arquivo usuarios.bin para leitura!\n");
+		printf("\nErro ao abrir o arquivo usuarios.bin para leitura!\n");
 		printf("Ou é o primeiro acesso e o arquivo não foi criado!\n");
 
 		strcpy(usuarios[0].login, "admin");
@@ -35,6 +35,7 @@ int ler_arquivoUsuario(Usuario usuarios[100])
     strcpy(usuarios[0].telefone, "99999999999");
     usuarios[0].id = 1;
     usuarios[0].acesso = 1;
+    usuarios[0].cpf = 0;
 
     strcpy(usuarios[1].login, "funcionario");
     strcpy(usuarios[1].senha, "12345");
@@ -43,6 +44,8 @@ int ler_arquivoUsuario(Usuario usuarios[100])
     strcpy(usuarios[1].sobrenome, "funcionario");
     usuarios[1].acesso = 0;
     usuarios[1].id = 2;
+    usuarios[1].cpf = 0;
+
     return 2;
 	}
 }

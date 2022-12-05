@@ -4,5 +4,6 @@ float precoDoProduto(int tipo, int quantidadeRequisitada, Produto produtos[], in
       return produtos[i].precoDeVenda * quantidadeRequisitada;
     }
   }
+  printf("\nProduto do tipo %d não encontrado em estoque! Favor checar estoque!\n", tipo );
   return 0;
 }

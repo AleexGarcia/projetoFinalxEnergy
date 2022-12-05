@@ -128,6 +128,11 @@ int setVenda(Relatorio *vendas, int quantidadeDeVendas, Produto produtos[], int 
 
         }
 
+    }else{
+
+        printf("\nDigite 0 para retornar!\n");
+        int pausa;
+        scanf("%d", &pausa);
     }
     return 0;
 }
