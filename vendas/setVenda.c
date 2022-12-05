@@ -33,70 +33,78 @@ int setVenda(Relatorio *vendas, int quantidadeDeVendas, Produto produtos[], int 
         float precoTotal = precoDasPlacas + precoDaEstrutura + precoDoInversor + precoDoCabeamento + precoDosConectores + precoDosDisjuntores;
 
         printf("\n---------------------------------\n");
-        printf("Numero de placas: %d | preço %f\n", numeroDePlacas, precoDasPlacas);
+        printf("Numero de placas: %d | preço %.2f\n", numeroDePlacas, precoDasPlacas);
         printf("---------------------------------\n");
-        printf("Numero de Inversor: %d | preço %f\n", numInversor, precoDoInversor);
+        printf("Numero de Inversor: %d | preço %.2f\n", numInversor, precoDoInversor);
         printf("---------------------------------\n");
-        printf("Numero de estruturas: %d | preço %f\n", numEstruturas, precoDaEstrutura);
+        printf("Numero de estruturas: %d | preço %.2f\n", numEstruturas, precoDaEstrutura);
         printf("---------------------------------\n");
-        printf("Numero de cabeamento: %d | preço %f\n", numCabeamento, precoDoCabeamento);
+        printf("Numero de cabeamento: %d | preço %.2f\n", numCabeamento, precoDoCabeamento);
         printf("---------------------------------\n");
-        printf("Numero de conectores: %d | preço %f\n", numConectores, precoDosConectores);
+        printf("Numero de conectores: %d | preço %.2f\n", numConectores, precoDosConectores);
         printf("---------------------------------\n");
-        printf("Numero de disjuntores: %d | preço %f\n", numDisjuntores, precoDosDisjuntores);
+        printf("Numero de disjuntores: %d | preço %.2f\n", numDisjuntores, precoDosDisjuntores);
         printf("---------------------------------\n");
-        printf("Preço total: %f.2\n", precoTotal);
-
+        printf("Preço total: %.2f\n", precoTotal);
+        printf("---------------------------------\n");
         float precoAVista = precoTotal * 0.9;
         float precoAPrazoCartao = precoTotal * 1.15;
         float precoAPrazoFinancimento = precoTotal * 1.5;
-
-        printf("Preço a vista: %f.2\n", precoAVista);
-        printf("Preço no cartão em 10x: %f 10 x %.2f \n", precoAPrazoCartao , precoAPrazoCartao / 10);
+        printf("Preço a vista: %.2f\n", precoAVista);
+        printf("---------------------------------\n");
+        printf("Preço no cartão em 10x: %.2f 10 x %.2f \n", precoAPrazoCartao , precoAPrazoCartao / 10);
+        printf("---------------------------------\n");
         printf("Preço financiamento em 18x: %f 18 x %.2f \n", precoAPrazoFinancimento , precoAPrazoFinancimento / 18);
+        printf("---------------------------------\n");
         printf("O prazo de 15 dias para a analise do projeto pela concenssionária.\n");
+        printf("---------------------------------\n");
         printf("A instalação do sistema se dá apos a analise em até 7 dias uteis apos a aprovação.\n");
+        printf("---------------------------------\n");
         printf("Há mais um prazo de 7 dias para a vistoria pela concenssionaria!\n");
+        printf("---------------------------------\n");
         printf("E mais 34 dias para que ela troque o relogio medidor do imóvel!\n");
+        printf("---------------------------------\n");
         printf("Totalizando 63 dias desde o inico do processo.\n");
         printf("---------------------------------\n");
 
         printf("Deseja concluir a compra? Digite 1 para confirmar e 0 para retornar.\n");
         scanf("%d", &compra);
-        int i = 0;
-        do{
-             if(i > 0 ){
-                printf("Informe um valor válido!\n");
-            }
-            printf("Qual a forma de pagamento?\n Digite 1: à vista \n Digite 2: Cartão de crédito \n Digite 3: Financimento\n");
-            scanf("%d", &formaDePagamento);
-            i++;
-        }while(formaDePagamento < 1 || formaDePagamento > 3);
+
 
         if(compra == 1){
+            int i = 0;
 
-          reduzirEstoque(0,numeroDePlacas,produtos,quantidadeProdutos);
-          reduzirEstoque(1,numInversor,produtos,quantidadeProdutos);
-          reduzirEstoque(2,numEstruturas,produtos,quantidadeProdutos);
-          reduzirEstoque(3,numCabeamento,produtos,quantidadeProdutos);
-          reduzirEstoque(4,numConectores,produtos,quantidadeProdutos);
-          reduzirEstoque(5,numDisjuntores,produtos,quantidadeProdutos);
+            do{
+                if(i > 0 ){
+                    printf("Informe um valor válido!\n");
+                }
+                printf("Qual a forma de pagamento?\n Digite 1: à vista \n Digite 2: Cartão de crédito \n Digite 3: Financimento\n");
+                scanf("%d", &formaDePagamento);
+                i++;
+            }while(formaDePagamento < 1 || formaDePagamento > 3);
 
-          float custoDasPlacas = custoDoProduto(0,numeroDePlacas,produtos,quantidadeProdutos);
-          float custoDosInversores = custoDoProduto(1,numInversor,produtos,quantidadeProdutos);
-          float custoDaEstrutura = custoDoProduto(2,numEstruturas,produtos,quantidadeProdutos);
-          float custoDoCabeamento = custoDoProduto(3,numCabeamento,produtos,quantidadeProdutos);
-          float custoDosConectores = custoDoProduto(4,numConectores,produtos,quantidadeProdutos);
-          float custoDosDisjuntores = custoDoProduto(5,numDisjuntores,produtos,quantidadeProdutos);
+            reduzirEstoque(0,numeroDePlacas,produtos,quantidadeProdutos);
+            reduzirEstoque(1,numInversor,produtos,quantidadeProdutos);
+            reduzirEstoque(2,numEstruturas,produtos,quantidadeProdutos);
+            reduzirEstoque(3,numCabeamento,produtos,quantidadeProdutos);
+            reduzirEstoque(4,numConectores,produtos,quantidadeProdutos);
+            reduzirEstoque(5,numDisjuntores,produtos,quantidadeProdutos);
 
-          float custoTotal = custoDasPlacas + custoDosInversores + custoDaEstrutura + custoDoCabeamento + custoDosConectores + custoDosDisjuntores;
+            float custoDasPlacas = custoDoProduto(0,numeroDePlacas,produtos,quantidadeProdutos);
+            float custoDosInversores = custoDoProduto(1,numInversor,produtos,quantidadeProdutos);
+            float custoDaEstrutura = custoDoProduto(2,numEstruturas,produtos,quantidadeProdutos);
+            float custoDoCabeamento = custoDoProduto(3,numCabeamento,produtos,quantidadeProdutos);
+            float custoDosConectores = custoDoProduto(4,numConectores,produtos,quantidadeProdutos);
+            float custoDosDisjuntores = custoDoProduto(5,numDisjuntores,produtos,quantidadeProdutos);
 
-          vendas->precoCabeamento = precoDoCabeamento;
-          vendas->precoConector = precoDosConectores;
-          vendas->precoDisjuntor = precoDosDisjuntores;
-          vendas->precoEstrutura = precoDaEstrutura;
-          vendas->precoInversor = precoDoInversor;
-          vendas->precoPlacas = precoDasPlacas;
+            float custoTotal = custoDasPlacas + custoDosInversores + custoDaEstrutura + custoDoCabeamento + custoDosConectores + custoDosDisjuntores;
+
+            vendas->precoCabeamento = precoDoCabeamento;
+            vendas->precoConector = precoDosConectores;
+            vendas->precoDisjuntor = precoDosDisjuntores;
+            vendas->precoEstrutura = precoDaEstrutura;
+            vendas->precoInversor = precoDoInversor;
+            vendas->precoPlacas = precoDasPlacas;
 
             if(formaDePagamento == 1){
                 vendas->precoTotal = precoAVista;
@@ -106,29 +114,29 @@ int setVenda(Relatorio *vendas, int quantidadeDeVendas, Produto produtos[], int 
                 vendas->precoTotal = precoAPrazoFinancimento;
             }
 
-          vendas->custoCabeamento = custoDoCabeamento;
-          vendas->custoConector = custoDosConectores;
-          vendas->custoDisjuntor = custoDosDisjuntores;
-          vendas->custoEstrutura = custoDaEstrutura;
-          vendas->custoInversor = custoDosInversores;
-          vendas->custoPlacas = custoDasPlacas;
-          vendas->custoTotal = custoTotal;
+            vendas->custoCabeamento = custoDoCabeamento;
+            vendas->custoConector = custoDosConectores;
+            vendas->custoDisjuntor = custoDosDisjuntores;
+            vendas->custoEstrutura = custoDaEstrutura;
+            vendas->custoInversor = custoDosInversores;
+            vendas->custoPlacas = custoDasPlacas;
+            vendas->custoTotal = custoTotal;
 
-          vendas->lucro = vendas->precoTotal - vendas->custoTotal;
+            vendas->lucro = vendas->precoTotal - vendas->custoTotal;
 
-          vendas->quantidadeDeCabeamento = numCabeamento;
-          vendas->quantidadeDeConectores = numConectores;
-          vendas->quantidadeDeDisjuntores = numDisjuntores;
-          vendas->quantidadeDeEstrutura = numEstruturas;
-          vendas->quantidadeDeInversores = numInversor;
-          vendas->quantidadeDePlacas = numeroDePlacas;
-          if(quantidadeDeVendas == 0){
-            vendas->id = quantidadeDeVendas + 1;
-          }else{
-            vendas->id = vendasArray[quantidadeDeVendas - 1].id + 1;
-          }
+            vendas->quantidadeDeCabeamento = numCabeamento;
+            vendas->quantidadeDeConectores = numConectores;
+            vendas->quantidadeDeDisjuntores = numDisjuntores;
+            vendas->quantidadeDeEstrutura = numEstruturas;
+            vendas->quantidadeDeInversores = numInversor;
+            vendas->quantidadeDePlacas = numeroDePlacas;
+            if(quantidadeDeVendas == 0){
+                vendas->id = quantidadeDeVendas + 1;
+            }else{
+                vendas->id = vendasArray[quantidadeDeVendas - 1].id + 1;
+            }
 
-          return 1;
+            return 1;
 
         }
 
