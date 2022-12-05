@@ -1,4 +1,6 @@
 #include "../calculaNumPlacas.c"
+#include "precoDoProduto.c"
+#include "custoDoProduto.c"
 #include "reduzirEstoque.c"
 
 int setVenda(Relatorio *vendas, int quantidadeDeVendas, Produto produtos[], int quantidadeProdutos)
@@ -16,7 +18,6 @@ int setVenda(Relatorio *vendas, int quantidadeDeVendas, Produto produtos[], int 
     numCabeamento = 2 * (numeroDePlacas / numeroDePlacas);
     numConectores = (int)2 * (numeroDePlacas);
     numDisjuntores = (int)3 * (numeroDePlacas / numeroDePlacas);
-
 
     float precoDasPlacas = precoDoProduto(0, numeroDePlacas, produtos, quantidadeProdutos);
     float precoDoInversor = precoDoProduto(1, numInversor, produtos, quantidadeProdutos);
@@ -53,6 +54,11 @@ int setVenda(Relatorio *vendas, int quantidadeDeVendas, Produto produtos[], int 
         printf("Preço a vista: %f.2\n", precoAVista);
         printf("Preço no cartão em 10x: %f 10 x %.2f \n", precoAPrazoCartao , precoAPrazoCartao / 10);
         printf("Preço financiamento em 18x: %f 18 x %.2f \n", precoAPrazoFinancimento , precoAPrazoFinancimento / 18);
+        printf("O prazo de 15 dias para a analise do projeto pela concenssionária.\n");
+        printf("A instalação do sistema se dá apos a analise em até 7 dias uteis apos a aprovação.\n");
+        printf("Há mais um prazo de 7 dias para a vistoria pela concenssionaria!\n");
+        printf("E mais 34 dias para que ela troque o relogio medidor do imóvel!\n");
+        printf("Totalizando 63 dias desde o inico do processo.\n")
         printf("---------------------------------\n");
 
         printf("Deseja concluir a compra? Digite 1 para confirmar e 0 para retornar.\n");

@@ -2,7 +2,7 @@ void getVenda(Relatorio vendas[100], int quantidadeVendas)
 {
     for (int i = 0; i < quantidadeVendas; i++)
     {
-        printf("\n---------------------------------\n");
+        printf("\n--------------- ID=%d ---------------\n", vendas[i].id);
         printf("Numero de placas: %d | preço %.2f\n", vendas[i].quantidadeDePlacas, vendas[i].precoPlacas);
         printf("---------------------------------\n");
         printf("Numero de Inversor: %d | preço %.2f\n", vendas[i].quantidadeDeInversores, vendas[i].precoInversor);

@@ -35,7 +35,8 @@
 #include "vendas/getVendas.c"
 #include "vendas/ler_arquivoVenda.c"
 #include "vendas/setVenda.c"
-
+#include "vendas/getFaturamento.c"
+#include "vendas/getLucro.c"
 
 int main()
 {
@@ -191,10 +192,24 @@ int main()
                                 break;
                             case 2:
                                 printf("RELATORIOS DE VENDA\n");
-                                getVenda(vendas,quantidadeVendas);
                                 int d;
-                                printf("Aperte enter para voltar!\n");
-                                scanf("%d", &d);
+                                do{
+                                    printf("Listar todas as vendas: digite 1\n");
+                                    printf("Faturamento até o momento: digite 2\n");
+                                    printf("Projeção de receita: digite 3\n");
+                                    scanf("%d", &d);
+                                    if(d == 1){
+                                        getVenda(vendas,quantidadeVendas);
+                                    }else if(d == 2){
+                                        getFaturamento(vendas,quantidadeVendas);
+                                    }else if(d == 3){
+                                        getLucro(vendas,quantidadeVendas);
+                                    }else if(d == 4){
+                                        printf("Saindo!\n")
+                                    }else{
+                                        printf("Valor inválido!\n");
+                                    }
+                                }while(d != 4;
                                 break;
                             case 3:
                                 printf("Voltando para o menu principal\n");
@@ -219,7 +234,7 @@ int main()
             }
             else
             {
-                printf("\nLogin e/ou senha informados estÃ£o incorretos\n");
+                printf("\nLogin e/ou senha informados estão incorretos\n");
                 break;
             }
 

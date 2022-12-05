@@ -10,11 +10,11 @@ void exibeMenuVenda(int acesso, int *menuVendas)
     scanf("%d", &menu);
     if (menu == 2)
     {
-      *menuVendas = 3;
+      menu = 3;
     }
     else if (menu == 3)
     {
-      *menuVendas = 4;
+      menu = 4;
     }
   }
   else

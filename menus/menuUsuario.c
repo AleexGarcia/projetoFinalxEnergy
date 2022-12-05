@@ -12,13 +12,11 @@
             scanf("%d", &menu);
             if (menu == 3)
             {
-                *menuUser = 5;
+                menu = 5;
             }
             else if (menu == 4)
             {
-                *menuUser = 6;
-            }else{
-                *menuUser = menu;
+                menu = 6;
             }
         }
         else
@@ -27,7 +25,7 @@
             printf("Digite 4 para Atualizar cadastro de usuarios\n");
             printf("Digite 5 para Retornar ao MENU PRINCIPAL\n");
             scanf("%d", &menu);
-            *menuUser = menu;
-        }
 
+        }
+        *menuUser = menu;
     }
