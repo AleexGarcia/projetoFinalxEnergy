@@ -76,11 +76,11 @@ void updateUser(Usuario *usuarios)
       Sleep(1000);
       break;
     case 9:
-      printf("CPF atual: %d\n", usuarios->cpf);
+      printf("CPF atual: %s\n", usuarios->cpf);
       printf("Informe o CPF do usuario:\n");
-      scanf("%d", &usuarios->cpf);
+      scanf("%s", usuarios->cpf);
       fflush(stdin);
-      printf("Renda atualizado com sucesso!\n");
+      printf("CPF atualizado com sucesso!\n");
       Sleep(1000);
       break;
     case 10:

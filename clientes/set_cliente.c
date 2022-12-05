@@ -7,7 +7,7 @@ void setCliente(Cliente *clientes, int quantidadeClientes)
   scanf("%s", clientes->sobrenome);
   fflush(stdin);
   printf("Informe o cpf:\n");
-  scanf("%d", &clientes->cpf);
+  scanf("%s", clientes->cpf);
   fflush(stdin);
   printf("Informe o endereco:\n");
   scanf("%s", clientes->endereco);

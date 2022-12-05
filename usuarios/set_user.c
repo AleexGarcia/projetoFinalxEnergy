@@ -23,7 +23,7 @@ void setUser(Usuario *user, int quantidadeUser, Usuario usuarios[100])
     removaQuebraLinha(user->sobrenome);
     fflush(stdin);
     printf("Informe o cpf:\n");
-    scanf("%d", &user->cpf);
+    scanf("%s", user->cpf);
     fflush(stdin);
     printf("Informe o endereco:\n");
     fgets(user->endereco,99,stdin);

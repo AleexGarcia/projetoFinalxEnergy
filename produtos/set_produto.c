@@ -1,5 +1,5 @@
 #include "find_produtoTipo.c"
-void setProduto(Produto *produtos, int quantidadeProdutos, Produto produtosArray[])
+int setProduto(Produto *produtos, int quantidadeProdutos, Produto produtosArray[])
 {
     printf("Informe o tipo do produto:\n");
     printf("0 - Placa fotovoltaica, 1 - inversor, 2 - estrutura, 3 - cabeamento, 4 - conectores 5 - disjuntor\n");
@@ -43,9 +43,11 @@ void setProduto(Produto *produtos, int quantidadeProdutos, Produto produtosArray
       fflush(stdin);
 
       produtos->id = quantidadeProdutos + 1;
+      return 1;
     }else{
       printf("Produto ja cadastrado! Prossiga para area de atualização!\n");
       Sleep(2000);
+      return 0;
     }
 
 }

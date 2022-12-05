@@ -58,7 +58,6 @@ int main()
     quantidadeClientes = ler_arquivoCliente(clientes);
     quantidadeProdutos = ler_arquivoProduto(produtos);
     quantidadeUser = ler_arquivoUsuario(usuarios);
-    escreverArquivoUsuario(usuarios, quantidadeUser);
     quantidadeVendas = ler_arquivoVenda(vendas);
 
     do
@@ -192,9 +191,10 @@ int main()
                             switch (menuProduto)
                             {
                             case 1:
-                                setProduto(&produtos[quantidadeProdutos],quantidadeProdutos,produtos);
-                                quantidadeProdutos++;
-                                escreverArquivoProduto(produtos, quantidadeProdutos);
+                                if(setProduto(&produtos[quantidadeProdutos],quantidadeProdutos,produtos)){
+                                    quantidadeProdutos++;
+                                    escreverArquivoProduto(produtos, quantidadeProdutos);
+                                }
                                 break;
                             case 2:
                                 getProduto(produtos,quantidadeProdutos,0);
@@ -230,6 +230,9 @@ int main()
                                 break;
                             case 4:
                                 getProduto(produtos,quantidadeProdutos,1);
+                                printf("\n Digite 0 para retornar \n");
+                                scanf("%d",&pausa);
+                                fflush(stdin);
                                 break;
                             case 5:
                                 printf("Retornar ao menu principal\n");
@@ -247,8 +250,7 @@ int main()
                             switch (menuVendas)
                             {
                             case 1:
-                                resposta = setVenda(&vendas[quantidadeVendas],quantidadeVendas,produtos,quantidadeProdutos);
-                                if(resposta){
+                                if(setVenda(&vendas[quantidadeVendas],quantidadeVendas,produtos,quantidadeProdutos)){
                                     quantidadeVendas++;
                                     escreverArquivoVenda(vendas,quantidadeVendas);
                                     printf("Venda realizada com sucesso!\n");

@@ -4,12 +4,12 @@ void getUser( Usuario usuarios[100], int quantidadeUsuarios, int exibicaoTotal){
       for (int i = 0; i < quantidadeUsuarios; i++)
       {
         if(exibicaoTotal == 0){
-          printf("id: %d \n nome: %s \n sobrenome: %s cpf: %d \n",
+          printf("id: %d \n nome: %s \n sobrenome: %s cpf: %s \n",
             usuarios[i].id, usuarios[i].nome, usuarios[i].sobrenome, usuarios[i].cpf);
           printf("------------------------------------------------\n");
         }else if(exibicaoTotal == 1){
           printf("\n------------------------------------------------------------------\n");
-          printf("id: %d \n nome: %s \n sobrenome: %s cpf: %d \n telefone: %s \n salario: %f \n endereço: %s \n data de nascimento: %s \n login: %s \n acesso %d  \n",
+          printf("id: %d \n nome: %s \n sobrenome: %s cpf: %s \n telefone: %s \n salario: %f \n endereço: %s \n data de nascimento: %s \n login: %s \n acesso %d  \n",
             usuarios[i].id, usuarios[i].nome, usuarios[i].sobrenome,usuarios[i].cpf, usuarios[i].telefone,
             usuarios[i].salario,usuarios[i].endereco,usuarios[i].dataDeNascimento,
             usuarios[i].login, usuarios[i].acesso);

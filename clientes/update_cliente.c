@@ -65,9 +65,9 @@ void updateCliente(Cliente *clientes)
       Sleep(1000);
       break;
     case 7:
-      printf("CPF Atual: %d\n", clientes->cpf);
+      printf("CPF Atual: %s\n", clientes->cpf);
       printf("Informe o cpf do cliente:\n");
-      scanf("%d", &clientes->cpf);
+      scanf("%s", clientes->cpf);
       fflush(stdin);
       printf("Cpf atualizado com sucesso!\n");
       Sleep(1000);

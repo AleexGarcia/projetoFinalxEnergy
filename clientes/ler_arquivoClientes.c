@@ -13,7 +13,6 @@ int ler_arquivoCliente(Cliente clientes[100])
 			// fread ler os dados
 			// retorna a quantidade de elementos lidos com sucesso
 			size_t r = fread(&p, sizeof(Cliente), 1, arq);
-			printf("i");
 			// se retorno for menor que o count, então sai do loop
 			if(r < 1)
 				break;

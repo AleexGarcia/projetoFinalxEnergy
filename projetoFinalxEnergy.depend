@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1670264218 source:c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\main.c
+1670265454 source:c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -41,7 +41,7 @@
 	"vendas/getFaturamento.c"
 	"vendas/getLucro.c"
 
-1670261160 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\interface\interface.c
+1670265271 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\interface\interface.c
 
 1669865120 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\menus\menuprincipal.c
 
@@ -74,12 +74,12 @@
 
 1669904299 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\usuarios\find_user.c
 
-1670263111 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\usuarios\get_user.c
+1670265368 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\usuarios\get_user.c
 
-1670262327 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\usuarios\set_user.c
+1670265351 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\usuarios\set_user.c
 	"find_login.c"
 
-1670262479 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\usuarios\update_user.c
+1670265592 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\usuarios\update_user.c
 
 1669864717 source:c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\interface\interface.c
 
@@ -101,11 +101,11 @@
 
 1669904307 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\clientes\find_cliente.c
 
-1670263078 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\clientes\get_cliente.c
+1670265321 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\clientes\get_cliente.c
 
-1670261517 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\clientes\set_cliente.c
+1670265281 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\clientes\set_cliente.c
 
-1670261777 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\clientes\update_cliente.c
+1670265295 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\clientes\update_cliente.c
 
 1669908335 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\usuarios\find_login.c
 
@@ -122,7 +122,7 @@
 
 1670001828 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\clientes\escrever_arquivoclientes.c
 
-1670263632 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\usuarios\ler_arquivousuario.c
+1670265442 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\usuarios\ler_arquivousuario.c
 
 1670263542 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\usuarios\escrever_arquivousuario.c
 
@@ -138,9 +138,9 @@
 
 1670254974 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\vendas\getvendas.c
 
-1670094869 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\vendas\ler_arquivovenda.c
+1670270133 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\vendas\ler_arquivovenda.c
 
-1670264651 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\vendas\setvenda.c
+1670264697 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\vendas\setvenda.c
 	"../calculaNumPlacas.c"
 	"precoDoProduto.c"
 	"custoDoProduto.c"
@@ -152,7 +152,7 @@
 
 1670191369 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\vendas\reduzirestoque.c
 
-1670264488 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\vendas\precodoproduto.c
+1670264715 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\vendas\precodoproduto.c
 
 1670248081 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\vendas\custodoproduto.c
 
