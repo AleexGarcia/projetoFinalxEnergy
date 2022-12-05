@@ -12,6 +12,7 @@ void exibeMenuAtualizacaoUsuario(char *nome)
   printf("Data de Nascimento: digite 6 \n");
   printf("Telefone: digite 7 \n");
   printf("Salario: digite 8 \n");
-  printf("Voltar: digite 9 \n");
+  printf("CPF: digite 9 \n");
+  printf("Voltar: digite 10 \n");
 }
 

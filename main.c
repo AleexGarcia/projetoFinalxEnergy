@@ -153,13 +153,17 @@ int main()
                                     printf("Id inválido!\n");
                                 }
                                 break;
-                            case 6:
+                            case 8:
                                 getUser(usuarios,quantidadeUser,1);
+                                break;
+                            case 9:
+                                printf("Retornando ao menu anterior!\n");
+                                Sleep(2000);
                                 break;
                             default:
                                 break;
                             }
-                        } while (menuUser != 5);
+                        } while (menuUser != 9);
                         break;
                     case 2:
 

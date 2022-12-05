@@ -6,6 +6,9 @@ void setCliente(Cliente *clientes, int quantidadeClientes)
   printf("Informe o sobrenome:\n");
   scanf("%s", clientes->sobrenome);
   fflush(stdin);
+  printf("Informe o cpf:\n");
+  scanf("%d", &clientes->cpf);
+  fflush(stdin);
   printf("Informe o endereco:\n");
   scanf("%s", clientes->endereco);
   fflush(stdin);
