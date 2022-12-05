@@ -44,17 +44,25 @@ typedef struct
 {
     int quantidadeDePlacas;
     float precoPlacas;
+    float custoPlacas;
     int quantidadeDeInversores;
     float precoInversor;
+    float custoInversor;
     int quantidadeDeConectores;
     float precoConector;
+    float custoConector;
     int quantidadeDeDisjuntores;
     float precoDisjuntor;
+    float custoDisjuntor;
     int quantidadeDeCabeamento;
     float precoCabeamento;
+    float custoCabeamento;
     int quantidadeDeEstrutura;
     float precoEstrutura;
+    float custoEstrutura;
     float precoTotal;
+    float custoTotal;
+    float lucro;
     int id;
 
 } Relatorio;

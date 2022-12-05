@@ -31,6 +31,11 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="calculaNumPlacas.c">
+			<Option compilerVar="CC" />
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
 		<Unit filename="clientes/escrever_arquivoClientes.c">
 			<Option compilerVar="CC" />
 			<Option compile="0" />
@@ -192,6 +197,11 @@
 			<Option link="0" />
 		</Unit>
 		<Unit filename="vendas/ler_arquivoVenda.c">
+			<Option compilerVar="CC" />
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="vendas/reduzirEstoque.c">
 			<Option compilerVar="CC" />
 			<Option compile="0" />
 			<Option link="0" />

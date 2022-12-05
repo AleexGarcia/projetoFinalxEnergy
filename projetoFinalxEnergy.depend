@@ -38,7 +38,7 @@
 	"vendas/ler_arquivoVenda.c"
 	"vendas/setVenda.c"
 
-1670093771 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\interface\interface.c
+1670245788 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\interface\interface.c
 
 1669865120 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\menus\menuprincipal.c
 
@@ -136,10 +136,13 @@
 
 1670094869 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\vendas\ler_arquivovenda.c
 
-1670180516 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\vendas\setvenda.c
+1670246271 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\vendas\setvenda.c
 	"../calculaNumPlacas.c"
+	"reduzirEstoque.c"
 
 1670094369 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\calculanumplacas.c
 
 1670092480 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\vendas\escrever_arquivovenda.c
+
+1670191369 c:\users\alexa\onedrive\documentos\programacaoestrutura\projetofinalxenergy\vendas\reduzirestoque.c
 

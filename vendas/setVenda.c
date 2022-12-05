@@ -4,7 +4,7 @@
 int setVenda(Relatorio *vendas, int quantidadeDeVendas, Produto produtos[], int quantidadeProdutos)
 {
     float consumoEnergeticoMedio;
-    int numeroDePlacas, compra, numEstruturas, numDisjuntores, numConectores, numCabeamento, numInversor;
+    int numeroDePlacas, compra, numEstruturas, numDisjuntores, numConectores, numCabeamento, numInversor, formaDePagamento;
 
     printf("Informe o consumo medio do ultimo ano em KWh:\n");
     scanf("%f", &consumoEnergeticoMedio);
@@ -16,6 +16,7 @@ int setVenda(Relatorio *vendas, int quantidadeDeVendas, Produto produtos[], int 
     numCabeamento = 2 * (numeroDePlacas / numeroDePlacas);
     numConectores = (int)2 * (numeroDePlacas);
     numDisjuntores = (int)3 * (numeroDePlacas / numeroDePlacas);
+
 
     float precoDasPlacas = precoDoProduto(0, numeroDePlacas, produtos, quantidadeProdutos);
     float precoDoInversor = precoDoProduto(1, numInversor, produtos, quantidadeProdutos);
@@ -43,11 +44,29 @@ int setVenda(Relatorio *vendas, int quantidadeDeVendas, Produto produtos[], int 
         printf("---------------------------------\n");
         printf("Numero de disjuntores: %d | preço %f\n", numDisjuntores, precoDosDisjuntores);
         printf("---------------------------------\n");
-        printf("Preço total: %f\n", precoTotal);
+        printf("Preço total: %f.2\n", precoTotal);
+
+        float precoAVista = precoTotal * 0.9;
+        float precoAPrazoCartao = precoTotal * 1.15;
+        float precoAPrazoFinancimento = precoTotal * 1.5;
+
+        printf("Preço a vista: %f.2\n", precoAVista);
+        printf("Preço no cartão em 10x: %f 10 x %.2f \n", precoAPrazoCartao , precoAPrazoCartao / 10);
+        printf("Preço financiamento em 18x: %f 18 x %.2f \n", precoAPrazoFinancimento , precoAPrazoFinancimento / 18);
         printf("---------------------------------\n");
 
         printf("Deseja concluir a compra? Digite 1 para confirmar e 0 para retornar.\n");
         scanf("%d", &compra);
+        int i = 0;
+        do{
+             if(i > 0 ){
+                printf("Informe um valor válido!\n");
+            }
+            printf("Qual a forma de pagamento?\n Digite 1: à vista \n Digite 2: Cartão de crédito \n Digite 3: Financimento\n");
+            scanf("%d", &formaDePagamento);
+            i++;
+        }while(formaDePagamento < 1 || formaDePagamento > 3);
+
         if(compra == 1){
 
           reduzirEstoque(0,numeroDePlacas,produtos,quantidadeProdutos);
@@ -57,13 +76,40 @@ int setVenda(Relatorio *vendas, int quantidadeDeVendas, Produto produtos[], int 
           reduzirEstoque(4,numConectores,produtos,quantidadeProdutos);
           reduzirEstoque(5,numDisjuntores,produtos,quantidadeProdutos);
 
+          float custoDasPlacas = custoDoProduto(0,numeroDePlacas,produtos,quantidadeProdutos);
+          float custoDosInversores = custoDoProduto(1,numInversor,produtos,quantidadeProdutos);
+          float custoDaEstrutura = custoDoProduto(2,numEstruturas,produtos,quantidadeProdutos);
+          float custoDoCabeamento = custoDoProduto(3,numCabeamento,produtos,quantidadeProdutos);
+          float custoDosConectores = custoDoProduto(4,numConectores,produtos,quantidadeProdutos);
+          float custoDosDisjuntores = custoDoProduto(5,numDisjuntores,produtos,quantidadeProdutos);
+
+          float custoTotal = custoDasPlacas + custoDosInversores + custoDaEstrutura + custoDoCabeamento + custoDosConectores + custoDosDisjuntores;
+
           vendas->precoCabeamento = precoDoCabeamento;
           vendas->precoConector = precoDosConectores;
           vendas->precoDisjuntor = precoDosDisjuntores;
           vendas->precoEstrutura = precoDaEstrutura;
           vendas->precoInversor = precoDoInversor;
           vendas->precoPlacas = precoDasPlacas;
-          vendas->precoTotal = precoTotal;
+
+            if(formaDePagamento == 1){
+                vendas->precoTotal = precoAVista;
+                }else if(formaDePagamento == 2){
+                vendas->precoTotal = precoAPrazoCartao;
+                }else{
+                vendas->precoTotal = precoAPrazoFinancimento;
+            }
+
+          vendas->custoCabeamento = custoDoCabeamento;
+          vendas->custoConector = custoDosConectores;
+          vendas->custoDisjuntor = custoDosDisjuntores;
+          vendas->custoEstrutura = custoDaEstrutura;
+          vendas->custoInversor = custoDosInversores;
+          vendas->custoPlacas = custoDasPlacas;
+          vendas->custoTotal = custoTotal;
+
+          vendas->lucro = vendas->precoTotal - vendas->custoTotal;
+
           vendas->quantidadeDeCabeamento = numCabeamento;
           vendas->quantidadeDeConectores = numConectores;
           vendas->quantidadeDeDisjuntores = numDisjuntores;
