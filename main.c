@@ -11,7 +11,6 @@
 #include "menus/menuUsuario.c"
 #include "menus/menuProduto.c"
 #include "menus/menuVendas.c"
-#include "menus/menuAtualizacaoUsuario.c"
 #include "clientes/find_cliente.c"
 #include "clientes/get_cliente.c"
 #include "clientes/set_cliente.c"
@@ -46,7 +45,7 @@ int main()
     int quantidadeUser = 0, quantidadeProdutos = 0, quantidadeClientes = 0, quantidadeVendas = 0;
     // variaveis auxiliares de dados recebidos pelo usuario
     char loginRecebido[25], senhaRecebida[25];
-    int idUsarioRecebido, idDoCliente, idProdutoRecebido, resposta, pausa;
+    int idUsarioRecebido, idDoCliente, idProdutoRecebido, pausa;
     // variaveis para controle de menus e autenticacao de usuario
     int menuInicial, menuPrincipal, menuUser, menuProduto, menuVendas, autenticado = 0, acesso;
     // array de armazenamento de usuarios, clientes e produtos
@@ -64,14 +63,17 @@ int main()
     {
         printf("\nMENU INICIAL \n Digite 1 p/ login. \n Digite 2 p/ Sair do Sistema.\n");
         scanf("%d", &menuInicial);
+        fflush(stdin);
         switch (menuInicial)
         {
         case 1:
             // recebendo login e senha
             printf("Login:\n ");
             scanf("%s", loginRecebido);
+            fflush(stdin);
             printf("Senha:\n ");
             scanf("%s", senhaRecebida);
+            fflush(stdin);
             // verificando se existe um user c/ este login e senha alterando autenticado = 1;
             for (int i = 0; i < quantidadeUser; i++)
             {
@@ -99,7 +101,7 @@ int main()
                             switch (menuUser)
                             {
                             case 1:
-                                setCliente(&clientes[quantidadeClientes], quantidadeClientes);
+                                setCliente(&clientes[quantidadeClientes], quantidadeClientes,clientes);
                                 quantidadeClientes++;
                                 escreverArquivoCliente(clientes, quantidadeClientes);
                                 break;
@@ -250,7 +252,7 @@ int main()
                             switch (menuVendas)
                             {
                             case 1:
-                                if(setVenda(&vendas[quantidadeVendas],quantidadeVendas,produtos,quantidadeProdutos)){
+                                if(setVenda(&vendas[quantidadeVendas],quantidadeVendas,produtos,quantidadeProdutos,vendas)){
                                     quantidadeVendas++;
                                     escreverArquivoVenda(vendas,quantidadeVendas);
                                     printf("Venda realizada com sucesso!\n");

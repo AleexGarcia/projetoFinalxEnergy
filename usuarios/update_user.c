@@ -1,10 +1,20 @@
-
 void updateUser(Usuario *usuarios)
 {
   int escolhaAttUsuario;
   do
   {
-    exibeMenuAtualizacaoUsuario(usuarios->nome);
+    limpar_tela();
+    printf("Informe o que deseja altera \n");
+    printf("Senha: digite 1 \n");
+    printf("Acesso: digite 2 \n");
+    printf("Nome: digite 3 \n");
+    printf("Sobrenome: digite 4 \n");
+    printf("Endereço: digite 5 \n");
+    printf("Data de Nascimento: digite 6 \n");
+    printf("Telefone: digite 7 \n");
+    printf("Salario: digite 8 \n");
+    printf("CPF: digite 9 \n");
+    printf("Voltar: digite 10 \n");
     scanf("%d", &escolhaAttUsuario);
     switch (escolhaAttUsuario)
     {
@@ -27,7 +37,9 @@ void updateUser(Usuario *usuarios)
     case 3:
       printf("Nome atual: %s\n", usuarios->nome);
       printf("Informe o nome:\n");
-      fgets(usuarios->nome,24,stdin);
+      fflush(stdin);
+      fgets(usuarios->nome, 24,stdin);
+      fflush(stdin);
       removaQuebraLinha(usuarios->nome);
       fflush(stdin);
       printf("Nome atualizado com sucesso!\n");
@@ -36,7 +48,8 @@ void updateUser(Usuario *usuarios)
     case 4:
       printf("Sobrenome atual: %s\n", usuarios->sobrenome);
       printf("Informe o Sobrenome:\n");
-      fgets(usuarios->sobrenome,24,stdin);
+      fflush(stdin);
+      fgets(usuarios->sobrenome, 24, stdin);
       removaQuebraLinha(usuarios->sobrenome);
       fflush(stdin);
       printf("Sobrenome atualizado com sucesso!\n");
@@ -45,6 +58,7 @@ void updateUser(Usuario *usuarios)
     case 5:
       printf("Endereço atual: %s\n", usuarios->endereco);
       printf("Informe o endereço:\n");
+      fflush(stdin);
       fgets(usuarios->endereco,99,stdin);
       removaQuebraLinha(usuarios->endereco);
       fflush(stdin);

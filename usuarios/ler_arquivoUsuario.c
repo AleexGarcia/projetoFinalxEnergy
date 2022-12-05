@@ -34,9 +34,11 @@ int ler_arquivoUsuario(Usuario usuarios[100])
     strcpy(usuarios[0].sobrenome, "admin");
     strcpy(usuarios[0].telefone, "99999999999");
     strcpy(usuarios[0].cpf, "99999999999");
+    strcpy(usuarios[0].endereco, "Rua 0");
+    strcpy(usuarios[0].dataDeNascimento, "02/01/1997");
     usuarios[0].id = 1;
     usuarios[0].acesso = 1;
-
+    fflush(stdin);
 
     strcpy(usuarios[1].login, "funcionario");
     strcpy(usuarios[1].senha, "12345");
@@ -44,6 +46,8 @@ int ler_arquivoUsuario(Usuario usuarios[100])
     strcpy(usuarios[1].nome, "funcionario");
     strcpy(usuarios[1].sobrenome, "funcionario");
     strcpy(usuarios[1].cpf, "99999999999");
+    strcpy(usuarios[1].endereco, "Rua 0");
+     strcpy(usuarios[1].dataDeNascimento, "02/01/1997");
     usuarios[1].acesso = 0;
     usuarios[1].id = 2;
 

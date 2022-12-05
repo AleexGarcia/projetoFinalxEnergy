@@ -20,13 +20,13 @@ typedef struct
     char nome[25];
     char sobrenome[25];
     char endereco[100];
-    char dataDeNascimento[10];
-    char telefone[11];
+    char dataDeNascimento[12];
+    char telefone[12];
     float salario;
-    char login[20];
-    char senha[20];
+    char login[25];
+    char senha[25];
     int acesso;
-    char cpf[11];
+    char cpf[12];
     int id;
 
 } Usuario;
@@ -36,10 +36,10 @@ typedef struct
     char nome[25];
     char sobrenome[25];
     char endereco[100];
-    char dataDeNascimento[10];
-    char telefone[11];
+    char dataDeNascimento[11];
+    char telefone[12];
     float renda;
-    char cpf[11];
+    char cpf[12];
 } Cliente;
 
 typedef struct

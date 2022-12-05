@@ -16,27 +16,37 @@ void updateProduto(Produto *produtos)
     switch (escolhaAttProduto)
     {
     case 1:
-      printf("Informe o nome:\n");
-      scanf("%s", produtos->nome);
+      printf("Nome atual: %s \n", produtos->nome);
+      printf("Informe o nome: \n");
       fflush(stdin);
+      fgets(produtos->nome,24,stdin);
+      fflush(stdin);
+      removaQuebraLinha(produtos->nome);
       printf("Nome atualizado com sucesso!\n");
       Sleep(1000);
       break;
     case 2:
+      printf("Fornecedor atual: %s\n", produtos->fornecedor);
       printf("Informe o Fornecedor:\n");
-      scanf("%s", produtos->fornecedor);
+      fflush(stdin);
+      fgets(produtos->fornecedor,24,stdin);
+      removaQuebraLinha(produtos->fornecedor);
       fflush(stdin);
       printf("Fornecedor atualizado com sucesso!\n");
       Sleep(1000);
       break;
     case 3:
+      printf("Marca atual: %s\n", produtos->marca);
       printf("Informe a Marca:\n");
-      scanf("%s", produtos->marca);
+      fflush(stdin);
+      fgets(produtos->marca,24,stdin);
+      removaQuebraLinha(produtos->marca);
       fflush(stdin);
       printf("Marca atualizado com sucesso!\n");
       Sleep(1000);
       break;
     case 4:
+      printf("Preço de compra atual: %.2f\n", produtos->precoDeCompra);
       printf("Informe o preço de Compra:\n");
       scanf("%f", &produtos->precoDeCompra);
       fflush(stdin);
@@ -44,6 +54,7 @@ void updateProduto(Produto *produtos)
       Sleep(1000);
       break;
     case 5:
+      printf("Preço de venda atual: %.2f\n", produtos->precoDeVenda);
       printf("Informe o preço de venda:\n");
       scanf("%f", &produtos->precoDeVenda);
       fflush(stdin);
@@ -51,6 +62,7 @@ void updateProduto(Produto *produtos)
       Sleep(1000);
       break;
     case 6:
+      printf("Quantidade atual: %d\n", produtos->quantidadeEmEstoque);
       printf("Informe a quantidade em estoque:\n");
       scanf("%d", &produtos->quantidadeEmEstoque);
       fflush(stdin);

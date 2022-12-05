@@ -3,7 +3,7 @@
 #include "custoDoProduto.c"
 #include "reduzirEstoque.c"
 
-int setVenda(Relatorio *vendas, int quantidadeDeVendas, Produto produtos[], int quantidadeProdutos)
+int setVenda(Relatorio *vendas, int quantidadeDeVendas, Produto produtos[], int quantidadeProdutos, Relatorio vendasArray[100])
 {
     float consumoEnergeticoMedio;
     int numeroDePlacas, compra, numEstruturas, numDisjuntores, numConectores, numCabeamento, numInversor, formaDePagamento;
@@ -122,7 +122,11 @@ int setVenda(Relatorio *vendas, int quantidadeDeVendas, Produto produtos[], int 
           vendas->quantidadeDeEstrutura = numEstruturas;
           vendas->quantidadeDeInversores = numInversor;
           vendas->quantidadeDePlacas = numeroDePlacas;
-          vendas->id = quantidadeDeVendas + 1;
+          if(quantidadeDeVendas == 0){
+            vendas->id = quantidadeDeVendas + 1;
+          }else{
+            vendas->id = vendasArray[quantidadeDeVendas - 1].id + 1;
+          }
 
           return 1;
 

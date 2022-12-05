@@ -15,6 +15,7 @@ void setUser(Usuario *user, int quantidadeUser, Usuario usuarios[100])
     scanf("%d", &user->acesso);
     fflush(stdin);
     printf("Informe o nome:\n");
+    fflush(stdin);
     fgets(user->nome,24,stdin);
     removaQuebraLinha(user->nome);
     fflush(stdin);
@@ -38,5 +39,10 @@ void setUser(Usuario *user, int quantidadeUser, Usuario usuarios[100])
     printf("Informe o salario:\n");
     scanf("%f", &user->salario);
     fflush(stdin);
-    user->id = quantidadeUser + 1;
+    if(quantidadeUser == 0){
+         user->id = quantidadeUser + 1;
+        }else{
+        user->id = usuarios[quantidadeUser - 1].id + 1;
+    }
+
 }

@@ -4,22 +4,24 @@ void updateCliente(Cliente *clientes)
   do
   {
     limpar_tela();
-    printf("Informe o que deseja altera");
-    printf("Nome: digite 1");
-    printf("Sobrenome: digite 2");
-    printf("Endereço: digite 3");
-    printf("Data de Nascimento: digite 4");
-    printf("Telefone: digite 5");
-    printf("Renda: digite 6");
-    printf("cpf: digite 7");
-    printf("Voltar: digite 8");
+    printf("Informe o que deseja altera\n");
+    printf("Nome: digite 1\n");
+    printf("Sobrenome: digite 2\n");
+    printf("Endereço: digite 3\n");
+    printf("Data de Nascimento: digite 4\n");
+    printf("Telefone: digite 5\n");
+    printf("Renda: digite 6\n");
+    printf("cpf: digite 7\n");
+    printf("Voltar: digite 8\n");
     scanf("%d", &escolhaAttCliente);
     switch (escolhaAttCliente)
     {
     case 1:
-      printf("Nome atual: %s\n", clientes->endereco);
+      printf("Nome atual: %s\n", clientes->nome);
       printf("Informe o nome:\n");
-      scanf("%s", clientes->nome);
+      fflush(stdin);
+      fgets(clientes->nome,24,stdin);
+      removaQuebraLinha(clientes->nome);
       fflush(stdin);
       printf("Nome atualizado com sucesso!\n");
       Sleep(1000);
@@ -27,7 +29,9 @@ void updateCliente(Cliente *clientes)
     case 2:
       printf("Sobrenome atual: %s\n", clientes->sobrenome);
       printf("Informe o Sobrenome:\n");
-      scanf("%s", clientes->sobrenome);
+      fflush(stdin);
+      fgets(clientes->sobrenome,24,stdin);
+      removaQuebraLinha(clientes->sobrenome);
       fflush(stdin);
       printf("Sobrenome atualizado com sucesso!\n");
       Sleep(1000);
@@ -35,7 +39,8 @@ void updateCliente(Cliente *clientes)
     case 3:
       printf("Endereço atual: %s\n", clientes->endereco);
       printf("Informe o endereço:\n");
-      scanf("%s", clientes->endereco);
+      fflush(stdin);
+      fgets(clientes->endereco,99,stdin);
       fflush(stdin);
       printf("Endereço atualizado com sucesso!\n");
       Sleep(1000);

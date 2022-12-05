@@ -1,7 +1,6 @@
-void escreverArquivoUsuario(Usuario usuarios[], int quantidadeDeUsuarios)
+void escreverArquivoUsuario(Usuario usuarios[100], int quantidadeDeUsuarios)
 {
 	int i;
-	//int len_vet = sizeof(usuarios) - 1; // tamanho do vetor
 	FILE * arq;
 
 	// abre o arquivo para escrita,destruindo os dados e escrevendo dnovo atualizado

@@ -1,5 +1,5 @@
 #include "find_produtoTipo.c"
-int setProduto(Produto *produtos, int quantidadeProdutos, Produto produtosArray[])
+int setProduto(Produto *produtos, int quantidadeProdutos, Produto produtosArray[100])
 {
     printf("Informe o tipo do produto:\n");
     printf("0 - Placa fotovoltaica, 1 - inversor, 2 - estrutura, 3 - cabeamento, 4 - conectores 5 - disjuntor\n");
@@ -20,14 +20,17 @@ int setProduto(Produto *produtos, int quantidadeProdutos, Produto produtosArray[
 
       printf("Informe o nome do produto:\n");
       fgets(produtos->nome, 24, stdin);
+      removaQuebraLinha(produtos->nome);
       fflush(stdin);
 
       printf("Informe o fornecedor:\n");
       fgets(produtos->fornecedor,24,stdin);
+      removaQuebraLinha(produtos->fornecedor);
       fflush(stdin);
 
       printf("Informe a marca do produto:\n");
       fgets(produtos->marca,24,stdin);
+      removaQuebraLinha(produtos->marca);
       fflush(stdin);
 
       printf("Informe o preço de compra:\n");
@@ -41,8 +44,11 @@ int setProduto(Produto *produtos, int quantidadeProdutos, Produto produtosArray[
       printf("Informe o quantidade comprada:\n");
       scanf("%d", &produtos->quantidadeEmEstoque);
       fflush(stdin);
-
-      produtos->id = quantidadeProdutos + 1;
+      if(quantidadeProdutos == 0){
+        produtos->id = quantidadeProdutos + 1;
+      }else{
+        produtos->id = produtosArray[quantidadeProdutos - 1].id + 1;
+      }
       return 1;
     }else{
       printf("Produto ja cadastrado! Prossiga para area de atualização!\n");
