@@ -1,4 +1,4 @@
-# projetoFinalxEnergy - EM DESENVOLVIMENTO
+# projetoFinalxEnergy
 
 A empresa de xEnergy resolveu informatizar toda o seu sistema de controle de
 funcionários e de atendimento ao cliente. Para tanto, o seu proprietário solicitou o
