@@ -80,11 +80,6 @@
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="menus/menuAtualizacaoUsuario.c">
-			<Option compilerVar="CC" />
-			<Option compile="0" />
-			<Option link="0" />
-		</Unit>
 		<Unit filename="menus/menuPrincipal.c">
 			<Option compilerVar="CC" />
 			<Option compile="0" />
@@ -105,6 +100,11 @@
 			<Option compile="0" />
 			<Option link="0" />
 		</Unit>
+		<Unit filename="produtos/delete_produto.c">
+			<Option compilerVar="CC" />
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
 		<Unit filename="produtos/escrever_arquivoProduto.c">
 			<Option compilerVar="CC" />
 			<Option compile="0" />
@@ -115,17 +115,17 @@
 			<Option compile="0" />
 			<Option link="0" />
 		</Unit>
+		<Unit filename="produtos/find_produtoTipo.c">
+			<Option compilerVar="CC" />
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
 		<Unit filename="produtos/get_produto.c">
 			<Option compilerVar="CC" />
 			<Option compile="0" />
 			<Option link="0" />
 		</Unit>
 		<Unit filename="produtos/ler_arquivoProduto.c">
-			<Option compilerVar="CC" />
-			<Option compile="0" />
-			<Option link="0" />
-		</Unit>
-		<Unit filename="produtos/precoDoProduto.c">
 			<Option compilerVar="CC" />
 			<Option compile="0" />
 			<Option link="0" />
@@ -141,6 +141,11 @@
 			<Option link="0" />
 		</Unit>
 		<Unit filename="remove_quebraLinha.c">
+			<Option compilerVar="CC" />
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="usuarios/deletar_usuario.c">
 			<Option compilerVar="CC" />
 			<Option compile="0" />
 			<Option link="0" />
@@ -181,6 +186,11 @@
 			<Option compile="0" />
 			<Option link="0" />
 		</Unit>
+		<Unit filename="vendas/custoDoProduto.c">
+			<Option compilerVar="CC" />
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
 		<Unit filename="vendas/escrever_arquivoVenda.c">
 			<Option compilerVar="CC" />
 			<Option compile="0" />
@@ -191,12 +201,27 @@
 			<Option compile="0" />
 			<Option link="0" />
 		</Unit>
+		<Unit filename="vendas/getFaturamento.c">
+			<Option compilerVar="CC" />
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="vendas/getLucro.c">
+			<Option compilerVar="CC" />
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
 		<Unit filename="vendas/getVendas.c">
 			<Option compilerVar="CC" />
 			<Option compile="0" />
 			<Option link="0" />
 		</Unit>
 		<Unit filename="vendas/ler_arquivoVenda.c">
+			<Option compilerVar="CC" />
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="vendas/precoDoProduto.c">
 			<Option compilerVar="CC" />
 			<Option compile="0" />
 			<Option link="0" />

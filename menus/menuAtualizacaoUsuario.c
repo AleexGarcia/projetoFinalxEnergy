@@ -1,6 +1,0 @@
-
-void exibeMenuAtualizacaoUsuario(char *nome)
-{
-
-}
-
