@@ -6,7 +6,7 @@ float precoDoProduto(int tipo, int quantidadeRequisitada, Produto produtos[], in
   }
 
   printf("\n Erro:Produto do tipo %d não encontrado em estoque ou estoque insuficiente! Favor checar estoque!\n", tipo );
-  printf("Quantidade Necessaria: %d", quantidadeRequisitada);
+  printf("Quantidade Necessaria: %d\n", quantidadeRequisitada);
 
   return 0;
 }
