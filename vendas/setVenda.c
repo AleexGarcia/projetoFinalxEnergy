@@ -7,11 +7,17 @@ int setVenda(Relatorio *vendas, int quantidadeDeVendas, Produto produtos[], int 
 {
     float consumoEnergeticoMedio;
     int numeroDePlacas, compra, numEstruturas, numDisjuntores, numConectores, numCabeamento, numInversor, formaDePagamento;
-
+    int t = 0;
     printf("Informe o consumo medio do ultimo ano em KWh:\n");
-    scanf("%f", &consumoEnergeticoMedio);
-    fflush(stdin);
 
+    do{
+        if(t > 0){
+            printf("Erro: Consumo energetico deve ser maior que 0\n");
+        }
+        scanf("%f", &consumoEnergeticoMedio);
+        fflush(stdin);
+        t++;
+    }while(consumoEnergeticoMedio <= 0 );
     numeroDePlacas = calculaNumPlacasSol(consumoEnergeticoMedio);
     numInversor = numeroDePlacas;
     numEstruturas = numeroDePlacas;
@@ -33,28 +39,28 @@ int setVenda(Relatorio *vendas, int quantidadeDeVendas, Produto produtos[], int 
         float precoTotal = precoDasPlacas + precoDaEstrutura + precoDoInversor + precoDoCabeamento + precoDosConectores + precoDosDisjuntores;
 
         printf("\n---------------------------------\n");
-        printf("Numero de placas: %d | preço %.2f\n", numeroDePlacas, precoDasPlacas);
+        printf("Numero de placas: %d | preço R$ %.2f\n", numeroDePlacas, precoDasPlacas);
         printf("---------------------------------\n");
-        printf("Numero de Inversor: %d | preço %.2f\n", numInversor, precoDoInversor);
+        printf("Numero de Inversor: %d | preço R$ %.2f\n", numInversor, precoDoInversor);
         printf("---------------------------------\n");
-        printf("Numero de estruturas: %d | preço %.2f\n", numEstruturas, precoDaEstrutura);
+        printf("Numero de estruturas: %d | preço R$ %.2f\n", numEstruturas, precoDaEstrutura);
         printf("---------------------------------\n");
-        printf("Numero de cabeamento: %d | preço %.2f\n", numCabeamento, precoDoCabeamento);
+        printf("Numero de cabeamento: %d | preço R$ %.2f\n", numCabeamento, precoDoCabeamento);
         printf("---------------------------------\n");
-        printf("Numero de conectores: %d | preço %.2f\n", numConectores, precoDosConectores);
+        printf("Numero de conectores: %d | preço R$ %.2f\n", numConectores, precoDosConectores);
         printf("---------------------------------\n");
-        printf("Numero de disjuntores: %d | preço %.2f\n", numDisjuntores, precoDosDisjuntores);
+        printf("Numero de disjuntores: %d | preço R$ %.2f\n", numDisjuntores, precoDosDisjuntores);
         printf("---------------------------------\n");
         printf("Preço total: %.2f\n", precoTotal);
         printf("---------------------------------\n");
         float precoAVista = precoTotal * 0.9;
         float precoAPrazoCartao = precoTotal * 1.15;
         float precoAPrazoFinancimento = precoTotal * 1.5;
-        printf("Preço a vista: %.2f\n", precoAVista);
+        printf("Preço a vista: R$%.2f\n", precoAVista);
         printf("---------------------------------\n");
-        printf("Preço no cartão em 10x: %.2f 10 x %.2f \n", precoAPrazoCartao , precoAPrazoCartao / 10);
+        printf("Preço no cartão em 10x: R$ %.2f 10 x R$ %.2f \n", precoAPrazoCartao , precoAPrazoCartao / 10);
         printf("---------------------------------\n");
-        printf("Preço financiamento em 18x: %f 18 x %.2f \n", precoAPrazoFinancimento , precoAPrazoFinancimento / 18);
+        printf("Preço financiamento em 18x: R$ %.2f 18 x R$ %.2f \n", precoAPrazoFinancimento , precoAPrazoFinancimento / 18);
         printf("---------------------------------\n");
         printf("O prazo de 15 dias para a analise do projeto pela concenssionária.\n");
         printf("---------------------------------\n");
